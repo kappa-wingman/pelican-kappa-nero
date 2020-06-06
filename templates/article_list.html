@@ -3,10 +3,12 @@
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <article>
+		<div class="mt-3 pb-1 mb-1">
                 <h1><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h1>
+		</div>
                 {% if DISPLAY_ARTICLE_INFO_ON_INDEX %}
-                    <div class="card">
-                      <div class="card-body mt-1 bg-faded p-1 mb-2">
+                    <div class="card mb-3">
+                      <div class="card-body bg-dark">
                         {% include "includes/article_info.html" %}
                       </div>
 		    </div>

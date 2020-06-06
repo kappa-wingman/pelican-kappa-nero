@@ -524,6 +524,8 @@ nav#sb_Article_TOC > .active:focus a {
 }
 */
 
+/* manually nadded for the plugin
+the current vesion of the ert plugin do not have this id (emtpy id) */
 #id-extract-toc {
     word-wrap: normal;
 }
@@ -578,12 +580,6 @@ nav#sb_Article_TOC > .active:focus a {
   transition: .32s transform ease-in-out;
 }
 
-/*
-.card-header .collapsed .eva {
-  transform: rotate(180deg);
-  font-size: 2.2rem;
-}
-*/
 .card-header .collapsed .fa {
   transform: rotate(-180deg);
 }
