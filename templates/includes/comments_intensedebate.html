@@ -1,0 +1,78 @@
+{% if INTENSEDEBATE_ACCOUNT %}
+
+<script>
+  function check_Consent(cookie_name) {
+    var allCookies = document.cookie;
+    var cookieArray = allCookies.split(";");
+    var consentGranted = false;
+    
+	for(var i=0; i<cookieArray.length; i++) {
+     		name = cookieArray[i].split('=')[0].trim();
+		value = decodeURIComponent(cookieArray[i].split('=')[1]);
+		//console.log (name,":",value);
+		//console.log ("cookie_name is:",cookie_name);
+		if (cookie_name == name) {
+			if (value == 'dismiss' || value == 'allow') {
+				console.log ("Cookie is either dismiss or allow");
+				consentGranted = true;
+			}
+		}
+	}
+
+	if (consentGranted) {
+		console.log ("Cookie checked: Consent granted.");
+		return true;
+	} else {
+		console.log ("Cookie checked: Consent not granted.");
+		return false;
+	}
+}
+</script>
+
+	<script>
+		var idcomments_acct = '{{INTENSEDEBATE_ACCOUNT}}';
+		var idcomments_post_id = '{{ article.slug }}';
+		var idcomments_post_url;
+	</script>
+	<span id="IDCommentsPostTitle" style="display:none"></span>
+
+<script>
+  var elementID_IntenseDebate;
+
+  function display_Comment() {
+    var script = document.createElement("script");
+    script.type = 'text/javascript';
+    script.src = 'https://www.intensedebate.com/js/genericCommentWrapperV2.js';
+    script.async = true;
+    elementID_IntenseDebate = document.getElementById('content').appendChild(script);
+  }
+
+  function not_display_Comment() {
+	document.getElementById('idc-container-parent').remove();
+	// below code would delete the whole page
+	//elementID_IntenseDebate.parentNode.remove();
+  }
+</script>
+
+<!--
+	<script async type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'>
+	</script>
+-->
+
+<script>
+  function checkConsentToDisplayComment() {
+        console.log ("function: checkConsentToDisplayComment called");
+	var user_Consent_Granted = check_Consent ('cookieconsent_status');
+    if (user_Consent_Granted) {
+        console.log ("Consent was granted, display comment");
+		display_Comment();
+    } else {
+        console.log ("Consent was denied, not displaying comment");
+		not_display_Comment();
+        }
+}
+</script>
+
+	<script> checkConsentToDisplayComment(); </script>
+
+{% endif %}

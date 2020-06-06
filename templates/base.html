@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+{% if USE_OPEN_GRAPH is not defined %}
+    {% set USE_OPEN_GRAPH = True %}
+{% endif %}
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
+<head>
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if 'liquid_tags.notebook' in PLUGINS %}
+        {% include 'includes/liquid_tags_nb_header.html' %}
+    {% endif %}
+
+    {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
+    {% if FAVICON %}
+    <link href="{{ SITEURL }}/{{ FAVICON }}" rel="icon">
+    {% endif %}
+    {% if FAVICON_IE %}
+    <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
+    {% endif %}
+    {% if TOUCHICON %}
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ TOUCHICON }}">
+    {% endif %}
+
+    {% block canonical_rel %}{% endblock %}
+
+    {% block meta %}
+        <meta name="author" content="{{ AUTHOR }}" />
+  	{% if not article and not page %}
+	    {% if OTHER_PAGE_METATAG_DESCRIPTION %}
+	    <meta name="description" content="{{ SITE_DESCRIPTION }}"/> 
+	    {% endif %}
+	{% endif %}
+    {% endblock %}
+
+    <!-- For JSON+LD included in base.html -->
+    {% if JSON_LD %}
+      {% include 'includes/json_ld.html' %}
+    {% endif %}
+
+    {# Open Graph tags #}
+    {% if USE_OPEN_GRAPH %}
+    {% block opengraph %}
+    <!-- Open Graph tags -->
+        {% if OPEN_GRAPH_FB_APP_ID %}
+            <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
+        {% endif %}
+        <meta property="og:site_name" content="{{ SITENAME }}" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ SITENAME }}"/>
+        <meta property="og:url" content="{{ SITEURL }}"/>
+        <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+        {% if OPEN_GRAPH_IMAGE %}
+            <meta property="og:image"
+                  content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+        {% endif %}
+    {% endblock %}
+    {% endif %}
+
+    {# Twitter Cards tags #}
+    {% include 'includes/twitter_cards.html' %}
+
+    {# Flattr ID for the Flattr browser plug-in #}
+    {% if FLATTR_ID %}
+        <meta name="flattr:id" content="{{ FLATTR_ID }}">
+    {% endif %}
+
+    <!-- Bootstrap -->
+    {% if BOOTSTRAP_THEME %}
+        <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
+    {% else %}
+        {# <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" type="text/css"> #}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    {% endif %}
+
+    {# <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet"> #}
+
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    {% if 'tipue_search' in PLUGINS %}
+    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
+    {% endif %}
+    {% if DOCUTIL_CSS %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
+    {% endif %}
+    {% if TYPOGRIFY %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet">
+    {% endif %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
+    <!-- CSS specifc for this theme -->
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/nero.css" type="text/css"/>
+    {% if SPHINX_COPYBUTTON %}
+    <!-- copy button -->
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/copybutton.css" type="text/css"/>
+    {% endif %}
+    {% if SHARIFF %}
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shariff/shariff.min.css" rel="stylesheet">
+    {% endif %}
+    {% if CUSTOM_CSS %}
+        <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
+    {% endif %}
+
+    {% if FEED_ALL_ATOM %}
+        <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} ATOM Feed"/>
+    {% endif %}
+
+    {% if FEED_ALL_RSS %}
+        <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
+              title="{{ SITENAME }} RSS Feed"/>
+    {% endif %}
+
+    {%- if tag and TAG_FEED_ATOM %}
+        {%- if '%s' not in TAG_FEED_ATOM %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(slug=tag.slug) %}
+        {%- else %}
+            {%- set tag_feed_atom = TAG_FEED_ATOM.format(tag.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ tag_feed_atom }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
+    {%- endif %}
+    {%- if category and CATEGORY_FEED_ATOM %}
+        {%- if '%s' not in CATEGORY_FEED_ATOM %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(slug=category.slug) %}
+        {%- else %}
+            {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(category.slug) %}
+        {%- endif %}
+        <link href="{{ SITEURL }}/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
+              title="{{ SITENAME }} {{ category }} ATOM Feed"/>
+    {%- endif %}
+
+<!-- Fonts -->
+<!-- needs future/better browser support
+<link rel="preload"
+      as="style"
+	{# link+intergrity need rel=stylesheet #}
+      href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css">
+-->
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css" integrity="sha256-C67K138e/S3hB+dnmeShAIyK2w9c8WkxhE7r6a7PJjY=" crossorigin="anonymous">
+<noscript>
+  <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css" integrity="sha256-C67K138e/S3hB+dnmeShAIyK2w9c8WkxhE7r6a7PJjY=" crossorigin="anonymous">
+</noscript>
+
+    <!-- https://jquery.com/download -->
+    <!-- https://github.com/jquery/jquery/releases -->
+    <!-- Using jquery 3.5.1 -->
+
+    {% if 'tipue_search' in PLUGINS %}
+      {#src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"#}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+    {% else %}
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    {% endif %}
+
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    {# <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script> #}
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha256-XfzdiC+S1keia+s9l07y7ye5a874sBq67zK4u7LTjvk=" crossorigin="anonymous"></script>
+
+    <!-- For Cookie Consent 2-->
+    {% include 'includes/cookie_consent2.html' %}
+
+    {% if SPHINX_COPYBUTTON %}
+      <!-- clipboard.js and copy button -->
+      <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/copybutton.js"></script>
+      <!-- https://github.com/zenorocha/clipboard.js -->
+      <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha384-x6nRSkfSsKGBsvlLFHHNju+buS3zYUztVnTRz/0JKgOIk3ulS6bNce/vHOvYE2eY" crossorigin="anonymous"></script>
+    {% endif %}
+
+    <!-- jQuery For the sizing of top navbar to collapse sooner -->
+    <script type="text/javascript">
+      $('#monitor').html($(window).width());
+
+      $(window).resize(function() {
+	//alert('jquery resize section');
+        var viewportWidth = $(window).width();
+        $('#monitor').html(viewportWidth);
+      });
+
+        // for highlighttable converted by pygments wrap under table-responsive
+        // for table converted by docutils and wrap under table-responsive
+      $(document).ready(function () {
+	//alert('ready section');	
+	$(".highlighttable").wrap("<div class='table-responsive'></div>");
+	$("table.docutils").wrap("<div class='table-responsive'></div>");
+	//$(".highlighttable").wrap("<div class='table table-striped table-responsive'></div>");
+	//$("table.docutils").wrap("<div class='table table-striped table-responsive'></div>");
+       // For doc nav sidebar open/close behaviour
+          $('#sb_doc_nav_closeButton').on('click', function () {
+            //alert('toggled');
+
+		// jQueryUI provide methods for duration of animation
+            //$('#sb_doc_nav').toggleClass('hidden');
+            $('#sb_doc_nav').toggleClass('toggle');
+		
+            $('#sb_doc_nav_openButton').css( "display", "flex" );
+            $('#sb_doc_nav_openButton').css( "position", "fixed" );
+            $('#sidebar').css( "margin-right", "250px");
+          })
+          $('#sb_doc_nav_openButton').on('click', function () {
+            //alert('toggled');
+	    //$('#sb_doc_nav').toggleClass('hidden',200);
+	    $('#sb_doc_nav').toggleClass('toggle');
+            $('#sb_doc_nav_openButton').css( "display", "none" );
+            $('#sidebar').css( "margin-right", "2vw");
+          })
+        }); // ending the doc ready function
+
+    </script>
+
+</head>
+<body>
+
+<!-- <div class="navbar navbar-default {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-dark bg-inverse{% else %}navbar-light{% endif %} fixed-top navbar-expand-lg" role="navigation"> -->
+
+<!-- fixed-top -->
+
+<header class="navbar navbar-default {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-dark bg-inverse{% else %}navbar-light{% endif %} navbar-expand-lg flex-column flex-lg-row" id="top_navbar">
+    <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle-navigation">
+            {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
+	<!--
+                <span class="sr-only navbar-toggler-icon fa fa-navicon" style="font-size:24px"> Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+	-->
+		<span>
+		  <!-- <i class="fa fa-bars"></i> -->
+		  <i data-feather="menu"></i>
+		</span>
+            </button>
+            {% endif %}
+            <a href="{{ SITEURL }}/" class="navbar-brand">
+                {% if SITELOGO %}<img class="img-responsive pull-left gap-right" src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}" alt="Site Logo"/> {% endif %}
+                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+            </a>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="navbar-nav mr-auto">
+		<li class="nav-item dropdown">
+		    <a class="nav-item nav-link dropdown-toggle" id="navbarDropDownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Categories</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropDownMenu1">
+		        {% if DISPLAY_CATEGORIES_ON_MENU %}
+			        <a class="dropdown-item"
+                                  href="{{ SITEURL }}/{{ CATEGORIES_URL }}">All categories
+                                </a>
+			    {% for cat, null in categories %}
+				<a {% if cat == category %}class="dropdown-item active"
+			 	    {% else %}
+					class="dropdown-item"
+				    {% endif %}
+				href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}
+				</a>
+			    {% endfor %}
+ 	                {% endif %}
+                     </div> <!-- dropdown-menu -->
+		</li>
+
+                {% for title, link in MENUITEMS %}
+                    <li class="nav-link"><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+
+                {% if not PAGES_SORT_ATTRIBUTE -%}
+                    {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+                {%- endif %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+                        {% if p.url %}
+                         <li {% if p == page %} class="nav-link active"
+				{% else %}
+				  class="nav-link"
+				{% endif %}>
+				<a href="{{ SITEURL }}/{{ p.url }}">
+                             {{ p.menulabel|default(p.title) }}
+                          </a></li>
+                        {% endif %}
+                      {% endfor %}
+                {% endif %}
+
+            </ul> <!-- <ul class="nav navbar-nav"> -->
+            <ul class="nav navbar-nav ml-auto">
+            {#{% if 'tipue_search' in PLUGINS %}
+              <li class="nav-item">
+                <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="tipue_Search" required>
+                </form>
+              </li>
+            {% endif %}#}
+            {% if ARCHIVES_SAVE_AS %}
+              <li class="nav-item"><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i data-feather="archive"></i></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
+            {% endif %}
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div> <!-- navbar container -->
+</header> <!-- header -->
+
+<!-- some space after the top banner -->
+<!-- <div class="pb-2 mb-2"> </div> -->
+
+<!-- Banner -->
+{% if BANNER and BANNER_ALL_PAGES %}
+    {% include 'includes/banner.html' %}
+{% elif BANNER and not BANNER_ALL_PAGES %}
+    {% block banner %}{% endblock %}
+{% endif %}
+<!-- End Banner -->
+
+<!-- Content Container -->
+{% if PADDED_SINGLE_COLUMN_STYLE %}
+    {% set content_class='col-lg-8 col-md-offset-2' %}
+{% elif not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
+	{# edit the statement after else for normal use #}
+	{# edit the statement on the left if sidebar on left #} 
+	{# content_class: if not specify col-lg-5/col-xl-6/col-xl-auto, it takes up all space
+	  and would use more space if sidebar is closed
+	  if content_class specify col-lg-5/col-xl6/col-xl-auto/colauto, if sidebar is closed
+	  only the content col moves left without expanding space, right sidebar remains
+	#}
+    {% set sb_doc_nav_class='col-xl-3 clearfix mr-auto d-flex flex-column ' + ('order-1' if SIDEBAR_ON_LEFT else '') %}
+    {% set content_class='col-xl-7 col-xl-auto mt-1 mb-1 ml-auto mr-auto align-self-start d-flex flex-column ' + ('order-2' if SIDEBAR_ON_LEFT else '') %}
+    {% set sidebar_class='col-xl-auto clearfix ml-auto d-flex flex-column ' + ('order-3' if SIDEBAR_ON_LEFT else '') %}
+{% else %}
+    {% set content_class='col-lg-12' %}
+{% endif %}
+<div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+    <div class="row wrapper flex-lg-nowrap">
+	{#{% if article %}
+	  {% if article.toc %}#}
+        {% if sb_doc_nav_class %}
+	<button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">☰</button>
+            <div class="{{ sb_doc_nav_class }}" id="sb_doc_nav"> 
+             <aside>
+                {% if not HIDE_SIDEBAR %}
+                    {% include 'includes/sidebar_doc_nav.html' %}
+                {% endif %}
+             </aside>
+          </div>
+        {% endif %} <!-- sb_doc_nav_class -->
+	{% if not article or not article.toc %}
+		<script type="text/javascript">
+		  document.getElementById("sb_doc_nav").style.visibility = "hidden";
+		</script>
+        {% endif %} <!-- if not article -->
+        <div class="{{ content_class }}" id="main_content">
+            {% block breadcrumbs %}{% endblock %}
+            {% block content %}{% endblock %}
+
+		{% include 'includes/footer.html' %}
+
+        </div>
+        {% if sidebar_class %}
+        <div class="{{ sidebar_class }}" id="sidebar">
+            <aside>
+                {% if ABOUT_ME or AVATAR %}
+                    {% include 'includes/aboutme.html' %}
+                {% endif %}
+                {% if not HIDE_SIDEBAR %}
+                    {% include 'includes/sidebar.html' %}
+                {% endif %}
+            </aside>
+        </div>
+        {% endif %}
+    </div>
+</div>
+<!-- End Content Container -->
+
+{#{% include 'includes/footer.html' %}#}
+
+<!-- Loading of jQuery and Bootstrap moved to head -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+{% if CUSTOM_JS %}
+    <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>
+{% endif %}
+
+{% if BANNER %}
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
+{% endif %}
+{% include 'includes/sidebar/github-js.html' %}
+{% include 'includes/disqus_script.html' %}
+<!-- Disable include of includes/ga.html, as the default one had no consent checking -->
+{% include 'includes/ga_check_consent.html' %}
+{% include 'includes/piwik.html' %}
+
+{% if 'liquid_tags.notebook' in PLUGINS %}
+    {% include 'includes/liquid_tags_nb_footer.html' %}
+{% endif %}
+
+{% block scripts %}{% endblock %}
+
+<script>
+  feather.replace()
+</script>
+
+<noscript>Your browser does not support JavaScript.</noscript>
+
+</body>
+</html>

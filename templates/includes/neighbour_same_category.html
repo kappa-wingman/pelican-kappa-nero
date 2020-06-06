@@ -1,0 +1,34 @@
+<!-- Plugin: neighbour -->
+
+{% if (article.prev_article_in_category) or (article.next_article_in_category) %}
+<nav aria-label="pagination-neigbour" role="navigation">
+<ul class="pagination d-flex row">
+{% endif %}
+
+{% if article.prev_article_in_category %}
+<li class="page-item flex-row ml-3" style="text-align: left; max-width:36ch; word-wrap:break-word">
+	<span style="text-align: left; max-width:36ch; word-wrap:break-word">
+	Previous article in this category <br>
+         <a href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">
+           <span aria-hidden="true">&larr;</span> {{ article.prev_article_in_category.title }}
+	 </a>
+        </span>
+</li>
+{% endif %}
+
+{% if article.next_article_in_category %}
+<li class="page-item ml-auto mr-3" style="text-align: right; max-width:29ch; word-wrap:break-word">
+	<span style="text-align: right; max-width:29ch; word-wrap:break-word">
+	Next article in this category <br>
+         <a href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">
+             {{ article.next_article_in_category.title }} <span aria-hidden="true">&rarr;</span>
+         </a>
+	</span>
+</li>
+{% endif %}
+
+{% if (article.prev_article_in_category) or (article.next_article_in_category) %}
+</ul>
+</nav>
+<hr>
+{% endif %}

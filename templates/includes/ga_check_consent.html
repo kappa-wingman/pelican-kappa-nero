@@ -1,0 +1,78 @@
+{% if GOOGLE_ANALYTICS_UNIVERSAL_CHECK_CONSENT %}
+
+    <!-- Google Analytics Universal -->
+<script>
+  //var gaProperty = 'UA-XXXXXXXX-Y';
+  var gaProperty = '{{ GOOGLE_ANALYTICS_UNIVERSAL }}';
+  var disableStr = 'ga-disable-' + gaProperty;
+  // checking for opt-out cookie on document and applying to window if set
+  if (document.cookie.indexOf(disableStr + '=true') > -1) {
+	window[disableStr] = true;
+  }
+
+// user is opting out, setting cookie on document, window and alerting success
+function gaOptout() {
+	document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	window[disableStr] = true;
+	console.log('Google Analytics Tracking is now deactivated');
+}
+
+  function check_Consent(cookie_name) {
+    var allCookies = document.cookie;
+    var cookieArray = allCookies.split(";");
+    var consentGranted = false;
+    
+	for(var i=0; i<cookieArray.length; i++) {
+     		name = cookieArray[i].split('=')[0].trim();
+		value = decodeURIComponent(cookieArray[i].split('=')[1]);
+		//console.log (name,":",value);
+		//console.log ("cookie_name is:",cookie_name);
+		if (cookie_name == name) {
+			if (value == 'dismiss' || value == 'allow') {
+				console.log ("Cookie is either dismiss or allow");
+				consentGranted = true;
+			}
+		}
+	}
+
+	if (consentGranted) {
+		console.log ("Cookie checked: Consent granted.");
+		return true;
+	} else {
+		console.log ("Cookie checked: Consent not granted.");
+		return false;
+	}
+  }
+  function checkConsentForGA() {
+        console.log ("function: checkConsentForGA called");
+	var user_Consent_Granted = check_Consent ('cookieconsent_status');
+    if (user_Consent_Granted) {
+        console.log ("Consent was granted, perform GA");
+	window[disableStr] = false;
+    } else {
+        console.log ("Consent was denied, not perform GA");
+	window[disableStr] = true;
+        }
+  }
+
+  checkConsentForGA();
+//window[disableStr] variable controls whether GA would be send to google
+
+// Google Analytics as usual from here on
+//console.log ("Before google js.");
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+// console.log ("After google js.");
+
+// display features and setting the '&uid' parameter are optional, but if you use them they do require a cookie consent
+
+ga('create', '{{ GOOGLE_ANALYTICS_UNIVERSAL }}', '{{ GOOGLE_ANALYTICS_UNIVERSAL_PROPERTY }}');
+ga('set', 'forceSSL', true);
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
+
+</script>
+
+{% endif %}

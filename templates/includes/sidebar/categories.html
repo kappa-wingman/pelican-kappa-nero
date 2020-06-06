@@ -1,0 +1,23 @@
+{% if DISPLAY_CATEGORIES_ON_SIDEBAR %}
+  {% from 'includes/sidebar/macros.jinja' import title %}
+
+<!-- Sidebar/Categories -->
+<section class="well">
+<!--<li class="list-group-item">-->
+  <a href="{{ SITEURL }}/{{ CATEGORIES_URL }}"><h4>{{ title(_('Categories'), DISABLE_SIDEBAR_TITLE_ICONS) }}</h4></a>
+  <ul class="list-group" id="sidebar_categories">
+    {% for cat, null in categories %}
+    <li class="list-group-item">
+      <a href="{{ SITEURL }}/{{ cat.url }}">
+        {%- if not DISABLE_SIDEBAR_TITLE_ICONS -%}
+        <i class="fa fa-folder-open fa-lg"></i>
+        {%- endif -%}
+        {{- cat -}}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+<!--</li>-->
+</section>
+<!-- End Sidebar/Categories -->
+{% endif %}

@@ -1,0 +1,81 @@
+{% if COOKIE_CONSENT2 %}
+
+<!-- https://www.osano.com/cookieconsent/documentation/javascript-api/ -->
+
+<!-- https://github.com/cdnjs/cdnjs/tree/master/ajax/libs/cookieconsent2/3.1.1 -->
+<!-- https://cdnjs.com/libraries/cookieconsent2 -->
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" integrity="sha384-nA7usz4cMKo7RylsCZnpe0V9qx5X7sa011o0OrDzrKUE7Ero1gB48Fjaw6SFxVZe" crossorigin="anonymous"/>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js" integrity="sha384-xLPjH6nqG4p/2mu1KJ1t+4KqcvkyXVwBucQtyGK65lDNfKzECxGY/QEYWR+Wompr" crossorigin="anonymous">
+</script>
+
+<script>
+window.addEventListener("load", function(){
+ window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#212121",
+      "text": "#f1f1f1"
+    },
+    "button": {
+      "background": "#f1d600"
+    }
+  },
+  "cookie": {
+	"secure": true
+  },
+  "type": "opt-in",
+  "revokable": true,
+  "content": {
+    "message": "{{ COOKIE_CONSENT2_MESSAGE }}",
+    "compliance": "opt-in",
+    "allow": "Allow",
+    "dismiss": "OK, got it!",
+    "deny": "Decline",
+    "link": "Learn more",
+    "href": "{{ COOKIE_CONSENT2_PRIVACY_URL }}"
+  },
+	onInitialise: function (status) {
+            var type = this.options.type;
+            var didConsent = this.hasConsented();
+            if (type == 'opt-in' && didConsent) {
+                //trackingScripts()
+		console.log ("Consented. onInit");
+            }
+            if (type == 'opt-out' && !didConsent) {
+                // disable cookies
+		console.log ("No Consent. onInit");
+            }
+        },
+
+        onStatusChange: function(status, chosenBefore) {
+            var type = this.options.type;
+            var didConsent = this.hasConsented();
+            if (type == 'opt-in' && didConsent) {
+                //trackingScripts()
+		console.log ("Consented. onStatusChange");
+	    }
+            if (type == 'opt-out' && !didConsent) {
+                // disable cookies
+		console.log ("No Consent. onStatusChange");
+            }
+	},
+
+        onRevokeChoice: function() {
+          var type = this.options.type;
+          if (type == 'opt-in') {
+            // disable cookies
+		console.log ("onRevoke disable cookies");
+		location.reload();
+          }
+          if (type == 'opt-out') {
+            // enable cookies
+		console.log ("onRevoke enable cookies");
+          }
+	}
+ })
+});
+
+</script>
+
+{% endif %}

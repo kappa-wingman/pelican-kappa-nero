@@ -1,0 +1,24 @@
+<!-- Sidebar -->
+<!-- need a scrollbar for the toc and won't slide with the main screen -->
+    {% include 'includes/sidebar/social.html' %}
+    {% include 'includes/sidebar/search.html' %}
+    {% include 'includes/sidebar/recent_posts.html' %}
+    {% include 'includes/sidebar/archive.html' %}
+    {% include 'includes/sidebar/categories.html' %}
+<!-- <section class="well well-sm"> -->
+<section class="card card-body mb-3 bg-faded p-1 mb-3">
+<!-- <section class="card"> -->
+  <ul class="list-group list-group-flush">
+    {% include 'includes/sidebar/optional_top.html' ignore missing %}
+    {% include 'includes/sidebar/show_source.html' %}
+    {% include 'includes/sidebar/series.html' %}
+    {% include 'includes/sidebar/github.html' %}
+    {% include 'includes/sidebar/twitter_timeline.html' %}
+    {% include 'includes/sidebar/links.html' %}
+    {% include 'includes/sidebar/authors.html' %}
+    {% include 'includes/sidebar/images.html' %}
+    {% include 'includes/sidebar/tag_cloud.html' %}
+    {% include 'includes/sidebar/optional_bottom.html' ignore missing %}
+  </ul>
+</section>
+<!-- End Sidebar -->

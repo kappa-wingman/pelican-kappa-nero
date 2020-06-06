@@ -1,0 +1,13 @@
+{% if article.similar_posts %}
+
+<section class="well" id="related-posts">
+<!--<hr>-->
+	<h4>Related articles in this site:</h4>
+    <ul>
+    {% for similar in article.similar_posts %}
+        <li><a href="{{ SITEURL }}/{{ similar.url }}">{{ similar.title }}</a></li>
+    {% endfor %}
+    </ul>
+</section>
+
+{% endif %}

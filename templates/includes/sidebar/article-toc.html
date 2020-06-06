@@ -1,0 +1,7 @@
+{% if article %}
+  {% if article.toc %}
+    <nav class="toc sidebar card bg-dark card-body mb-2" id="sb_Article_TOC">
+    {{ article.toc }}
+    </nav>
+  {% endif %}
+{% endif %}
