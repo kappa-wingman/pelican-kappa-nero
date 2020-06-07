@@ -7,8 +7,8 @@ html {
   --themeBGImg:		linear-gradient(#262626, #262626, #262626);
   --themeCodeBG:	#202020;
   --themeColor:		#d6d6d6;
-  --rootScrollBarThumb: rgb(190,190,190);
-  --rootScrollBarColor: rgb(58,64,68);
+  --rootScrollBarThumb: rgb(180,180,180);
+  --rootScrollBarColor: rgb(54,60,64);
   --leftScrollBarThumb: #929292;
   --leftScrollBarColor: #444852;
 }
