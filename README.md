@@ -18,8 +18,9 @@ Use it at your own risk.
 * Known problems
 	* If main content column uses col-xl-auto, the tables or converted code block with lines by default are not table responsive
 	* DISABLE_SIDEBAR_TITLE_ICONS would not work because of code changes
-* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
+	* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
 	* DISPLAY_BREADCRUMBS is not working. Related code was not migrated to Bootstrap 4
+	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some icons are not updated to use the new icons.
 
 * Options that must be set in pelicanconf.py:
 	* PLUGINS = \['i18n_subsites'\] (required since pelican-bootstrap3)
@@ -35,7 +36,7 @@ Use it at your own risk.
 	* Set your URL to privacy policy with COOKIE_CONSENT2_PRIVACY_URL
 * Setup your account id from IntenseDebate
 	* INTENSEDEBATE_ACCOUNT = 'Your account id from IntenseDebate'
-* Enable Google Analytics only if Cookie Consent 2 was consented and accepted
+* Enable InteseDebate comment system and Google Analytics only if Cookie Consent 2 was consented and accepted
 	* GOOGLE_ANALYTICS_UNIVERSAL_CHECK_CONSENT = True
 	* Also need to configure parameters according to your setting
 	* GOOGLE_ANALYTICS_UNIVERSAL = 'UA-XXXXXX-Y'
@@ -66,6 +67,6 @@ Use it at your own risk.
 	* SPHINX_COPYBUTTON = True
 	* Adopted from [sphinx copybutton](https://github.com/executablebooks/sphinx-copybutton)
 	* Credits for the copy button goes to [Chris Holdgraf](https://github.com/choldgraf)
-* Added option OTHER_PAGE_METATAG_DESCRIPTION
+* Added an option OTHER_PAGE_METATAG_DESCRIPTION
 	* It is for html file that are not page or article
 	* That would a meta tag description to the head section

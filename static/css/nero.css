@@ -134,12 +134,17 @@ a:visited {
 }
 
 #sb_doc_nav {
-  /* Only for Firefox */
+  /* Sidebar setting only for Firefox */
   /* First two lines are for Firefox 63 compatibility */
 /*  scrollbar-width: thin; */
   scrollbar-face-color: var(--leftScrollBarThumb);
   scrollbar-track-color: var(--leftScrollBarColor);
   scrollbar-color: var(--leftScrollBarThumb) var(--leftScrollBarColor);
+
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: margin 0.5s ease !important;
 }
 
 /* For Chrome scroll bar in left sidebar */
@@ -327,6 +332,7 @@ p.card-header.collapsed {
   min-width: 15%;
   max-width: 20%; 
 */
+    min-width: 250px; 
     max-width: 250px; 
     width: 250px;
 
@@ -363,6 +369,11 @@ p.card-header.collapsed {
   align-self: flex-start;
   display: none;
   color: var(--themeColor);
+
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: margin 0.5s ease !important;
 }
 
 .btn:not(:disabled):not(.disabled) {
@@ -386,7 +397,7 @@ p.card-header.collapsed {
   // width: 50px !important;
 */
   display: none !important;
-  transition: all .5s !important;
+  transition: all 0.5s !important;
 
 /* not working, check jQuery part
   #sidebar {
@@ -399,6 +410,23 @@ p.card-header.collapsed {
 	display: flex;
   }
 */
+}
+
+@media screen and (min-width: 992px) {
+  #sb_doc_nav.toggle {
+    display: block;
+    /* same width as sidebar */
+    margin-left: -25%;
+  }
+/*
+  #sb_doc_nav_openButton {
+    display: none !important;
+  }
+*/
+    #main_content {
+        margin-left: 3% !important;
+	//position: static;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -452,6 +480,11 @@ p.card-header.collapsed {
 
     margin-left: 5vw;
     margin-right: 3vw;
+
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: width 0.5s ease !important;
 }
 
 /* right sidebar */
@@ -460,8 +493,8 @@ p.card-header.collapsed {
   //min-width: 200px;
   //max-width: 17.5%;
   max-width: 18.5%;
-  margin-left: 1vw;
-  margin-right: 2.5vw;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
 }
 
 /* scrollspy */

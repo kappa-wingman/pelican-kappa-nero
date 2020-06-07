@@ -202,14 +202,16 @@
 		
             $('#sb_doc_nav_openButton').css( "display", "flex" );
             $('#sb_doc_nav_openButton').css( "position", "fixed" );
-            $('#sidebar').css( "margin-right", "250px");
+            $('#main_content').toggleClass( "col-xl-9 col-xl-7");
+//            $('#sidebar').css( "margin-right", "250px");
           })
           $('#sb_doc_nav_openButton').on('click', function () {
             //alert('toggled');
 	    //$('#sb_doc_nav').toggleClass('hidden',200);
 	    $('#sb_doc_nav').toggleClass('toggle');
             $('#sb_doc_nav_openButton').css( "display", "none" );
-            $('#sidebar').css( "margin-right", "2vw");
+            $('#main_content').toggleClass( "col-xl-9 col-xl-7");
+//            $('#sidebar').css( "margin-right", "2vw");
           })
         }); // ending the doc ready function
 
