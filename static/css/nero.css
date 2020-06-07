@@ -141,10 +141,10 @@ a:visited {
   scrollbar-track-color: var(--leftScrollBarColor);
   scrollbar-color: var(--leftScrollBarThumb) var(--leftScrollBarColor);
 
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out !important;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out !important;
 }
 
 /* For Chrome scroll bar in left sidebar */
@@ -318,52 +318,6 @@ p.card-header.collapsed {
   justify-content: space-between;
 }
 
-#sb_doc_nav {
-  /*order: 2; */ /* only useful if it is a flex system */
-  overflow-y: auto;
-  /*height: 100%;*/ /* Full-height: remove this if you want "auto" height */
-  /*height: auto;*/ /* Full-height: remove this if you want "auto" height */
-  height: 100vh; 
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top top and buttom use together */
-  bottom: 0;
-  display: block;
-/*
-  min-width: 15%;
-  max-width: 20%; 
-*/
-    min-width: 250px; 
-    max-width: 250px; 
-    width: 250px;
-
-   margin: 0; /*important, zero gap between sidebar and scrollbar*/
-   padding: 0;
-   list-style: none;
-
-//    position: fixed;
-//    position: relative;
-//    position: sticky;
-//    position: absolute;
-
-  position: -webkit-sticky;
-  position: sticky;
-
-/*  border-bottom: 1px solid rgba(0, 0, 0, .1); 
-*/
-
- /* SASS syntax, not CSS */
-  /*
-  @include media-breakpoint-up(md) {
-	display: none;
-      position: sticky;
-      top: 4rem;
-      z-index: 1000;
-      height: subtract(100vh, 4rem);
-      border-right: 1px solid rgba(0, 0, 0, .1);
-  }
-  */
-}
-
 #sb_doc_nav_openButton {
   width: 60px;
   align-self: flex-start;
@@ -378,6 +332,51 @@ p.card-header.collapsed {
 
 .btn:not(:disabled):not(.disabled) {
   color: var(--themeColor);
+}
+
+#sb_doc_nav {
+  /*order: 2; */ /* only useful if it is a flex system */
+  overflow-y: auto;
+  /*height: 100%;*/ /* Full-height: remove this if you want "auto" height */
+  /*height: auto;*/ /* Full-height: remove this if you want "auto" height */
+  height: 100vh;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top top and buttom use together */
+  bottom: 0;
+  display: block;
+/*
+  min-width: 15%;
+  max-width: 20%;
+*/
+    min-width: 250px;
+    max-width: 250px;
+    width: 250px;
+
+   margin: 0; /*important, zero gap between sidebar and scrollbar*/
+   padding: 0;
+   list-style: none;
+
+//    position: fixed;
+//    position: relative;
+//    position: sticky;
+//    position: absolute;
+
+  position: -webkit-sticky;
+  position: sticky;
+
+/*  border-bottom: 1px solid rgba(0, 0, 0, .1); */
+
+ /* SASS syntax, not CSS */
+  /*
+  @include media-breakpoint-up(md) {
+        display: none;
+      position: sticky;
+      top: 4rem;
+      z-index: 1000;
+      height: subtract(100vh, 4rem);
+      border-right: 1px solid rgba(0, 0, 0, .1);
+  }
+  */
 }
 
 #sb_doc_nav.hidden {
@@ -409,6 +408,20 @@ p.card-header.collapsed {
   #sb_doc_nav_openButton {
 	display: flex;
   }
+*/
+}
+
+#sb_doc_nav.move {
+  margin-left: -250px;
+  position: unset !important;
+  transition: all 0.5s !important;
+  display: none: !important;
+/*
+  top: unset !important;
+  bottom: unset !important;
+  width: auto !important;
+  min-width: auto !important;
+  max-width: auto !important;
 */
 }
 
@@ -481,10 +494,10 @@ p.card-header.collapsed {
     margin-left: 5vw;
     margin-right: 3vw;
 
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out !important;
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out !important;
 }
 
 /* right sidebar */

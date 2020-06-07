@@ -196,10 +196,15 @@
           $('#sb_doc_nav_closeButton').on('click', function () {
             //alert('toggled');
 
-		// jQueryUI provide methods for duration of animation
+		// jQueryUI provides methods for duration of animation
+	//side bar doc nav serveral methods
+	// hidden, hide the left sidebar, main_content, right sidebar don't move
+	// toggle, hide the left sidebar, main_content resize
+	// move, left side bar move out of screen (margin-left), main_content resize 
+
             //$('#sb_doc_nav').toggleClass('hidden');
-            $('#sb_doc_nav').toggleClass('toggle');
-		
+            //$('#sb_doc_nav').toggleClass('toggle');
+            $('#sb_doc_nav').toggleClass('move');
             $('#sb_doc_nav_openButton').css( "display", "flex" );
             $('#sb_doc_nav_openButton').css( "position", "fixed" );
             $('#main_content').toggleClass( "col-xl-9 col-xl-7");
@@ -208,7 +213,8 @@
           $('#sb_doc_nav_openButton').on('click', function () {
             //alert('toggled');
 	    //$('#sb_doc_nav').toggleClass('hidden',200);
-	    $('#sb_doc_nav').toggleClass('toggle');
+	    //$('#sb_doc_nav').toggleClass('toggle');
+	    $('#sb_doc_nav').toggleClass('move');
             $('#sb_doc_nav_openButton').css( "display", "none" );
             $('#main_content').toggleClass( "col-xl-9 col-xl-7");
 //            $('#sidebar').css( "margin-right", "2vw");
@@ -339,7 +345,7 @@
 	  {% if article.toc %}#}
         {% if sb_doc_nav_class %}
 	<button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">☰</button>
-           <nav class="{{ sb_doc_nav_class }}" id="sb_doc_nav"> 
+           <nav class="{{ sb_doc_nav_class }} nav navbar-nav collapse navbar-collapse" id="sb_doc_nav"> 
              <aside>
                 {% if not HIDE_SIDEBAR %}
                     {% include 'includes/sidebar_doc_nav.html' %}

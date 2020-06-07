@@ -2,10 +2,14 @@
 
 <!-- <button class="sb_doc_nav_closeButton" onclick="sb_doc_nav_close()" -->
 
+<!-- Use jQuery and onclick for toggling -->
 <button class="btn" id="sb_doc_nav_closeButton" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
 
-{# Not working #}
-{#<button class="btn" id="sb_doc_nav_closeButton" data-toggle="collapse" aria-expanded="true" aria-controls="sb_doc_nav" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>#}
+<!-- tried to use navbar-toggler/collapse, but collapse is not working -->
+{#
+<button class="btn navbar-toggler" type="button" id="sb_doc_nav_closeButton" data-toggle="collapse" aria-expanded="false" data-target="#sb_doc_nav"
+ style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
+#}
 
 <!-- need a scrollbar for the toc and won't slide with the main screen -->
 {% include 'includes/sidebar/article-toc.html' ignore missing %} 
