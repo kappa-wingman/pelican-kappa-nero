@@ -70,3 +70,6 @@ Use it at your own risk.
 * Added an option OTHER_PAGE_METATAG_DESCRIPTION
 	* It is for html file that are not page or article
 	* That would a meta tag description to the head section
+* Include a KMP search js for tipue
+	* TIPUESEARCH_KMP = True
+	* Credit goes to [Psychoinformatics.de](https://github.com/psychoinformatics-de/inm7-docs/tree/master/theme/static/tsl)

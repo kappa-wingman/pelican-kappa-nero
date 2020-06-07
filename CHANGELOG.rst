@@ -16,6 +16,12 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Include a KMP search js for tipue
+
+- Version 1.0.1
+  
+  - Update left sidebar and main content responsive design
+
 - Version 1.0.0
 
   - Theme created based on pelican-bootstrap4-nero v1.0.1

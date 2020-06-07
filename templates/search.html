@@ -9,9 +9,14 @@
     {% include 'includes/minify_tipuesearch.html' with context %}
     {% else %}
     <script src="{{ SITEURL }}/tipuesearch_content.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_set.js"></script>
-    <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.min.js"></script>
+	{% if TIPUESEARCH_KMP %}
+          <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_lite.js"></script>
+	{% else %}
+    	  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_set.js"></script>
+    	  <script type="text/javascript" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.min.js"></script>
+	{% endif %}
     {% endif %}
+	{% if not TIPUESEARCH_KMP %}
     <script>
     $(document).ready(function() {
       $('#tipue_search_input').tipuesearch({
@@ -20,8 +25,9 @@
       });
     });
     </script>
+	{% endif %}
 {% endblock %}
 
 {% block content %}
-<div id="tipue_search_content"></div>
+<div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
 {% endblock %}
