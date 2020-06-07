@@ -141,10 +141,10 @@ a:visited {
   scrollbar-track-color: var(--leftScrollBarColor);
   scrollbar-color: var(--leftScrollBarThumb) var(--leftScrollBarColor);
 
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: margin 0.5s ease !important;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out !important;
 }
 
 /* For Chrome scroll bar in left sidebar */
@@ -370,10 +370,10 @@ p.card-header.collapsed {
   display: none;
   color: var(--themeColor);
 
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: margin 0.5s ease !important;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out !important;
 }
 
 .btn:not(:disabled):not(.disabled) {
@@ -481,10 +481,10 @@ p.card-header.collapsed {
     margin-left: 5vw;
     margin-right: 3vw;
 
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease !important;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out !important;
 }
 
 /* right sidebar */

@@ -339,13 +339,13 @@
 	  {% if article.toc %}#}
         {% if sb_doc_nav_class %}
 	<button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">☰</button>
-            <div class="{{ sb_doc_nav_class }}" id="sb_doc_nav"> 
+           <nav class="{{ sb_doc_nav_class }}" id="sb_doc_nav"> 
              <aside>
                 {% if not HIDE_SIDEBAR %}
                     {% include 'includes/sidebar_doc_nav.html' %}
                 {% endif %}
              </aside>
-          </div>
+           </nav>
         {% endif %} <!-- sb_doc_nav_class -->
 	{% if not article or not article.toc %}
 		<script type="text/javascript">
@@ -371,8 +371,8 @@
             </aside>
         </div>
         {% endif %}
-    </div>
-</div>
+    </div> <!-- wrapper -->
+</div> <!-- container -->
 <!-- End Content Container -->
 
 {#{% include 'includes/footer.html' %}#}
