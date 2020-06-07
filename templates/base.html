@@ -193,11 +193,12 @@
 	//$(".highlighttable").wrap("<div class='table table-striped table-responsive'></div>");
 	//$("table.docutils").wrap("<div class='table table-striped table-responsive'></div>");
        // For doc nav sidebar open/close behaviour
+
           $('#sb_doc_nav_closeButton').on('click', function () {
             //alert('toggled');
 
 		// jQueryUI provides methods for duration of animation
-	//side bar doc nav serveral methods
+	// side bar doc nav has several methods
 	// hidden, hide the left sidebar, main_content, right sidebar don't move
 	// toggle, hide the left sidebar, main_content resize
 	// move, left side bar move out of screen (margin-left), main_content resize 
@@ -208,7 +209,7 @@
             $('#sb_doc_nav_openButton').css( "display", "flex" );
             $('#sb_doc_nav_openButton').css( "position", "fixed" );
             $('#main_content').toggleClass( "col-xl-9 col-xl-7");
-//            $('#sidebar').css( "margin-right", "250px");
+	    // $('#sidebar').css( "margin-right", "250px");
           })
           $('#sb_doc_nav_openButton').on('click', function () {
             //alert('toggled');
@@ -217,7 +218,7 @@
 	    $('#sb_doc_nav').toggleClass('move');
             $('#sb_doc_nav_openButton').css( "display", "none" );
             $('#main_content').toggleClass( "col-xl-9 col-xl-7");
-//            $('#sidebar').css( "margin-right", "2vw");
+            // $('#sidebar').css( "margin-right", "2vw");
           })
         }); // ending the doc ready function
 
@@ -334,6 +335,7 @@
 	  only the content col moves left without expanding space, right sidebar remains
 	#}
     {% set sb_doc_nav_class='col-xl-3 clearfix mr-auto d-flex flex-column ' + ('order-1' if SIDEBAR_ON_LEFT else '') %}
+	{# check the jQuery section as it would swap col-xl-9 with col-xl7 #}
     {% set content_class='col-xl-7 col-xl-auto mt-1 mb-1 ml-auto mr-auto align-self-start d-flex flex-column ' + ('order-2' if SIDEBAR_ON_LEFT else '') %}
     {% set sidebar_class='col-xl-auto clearfix ml-auto d-flex flex-column ' + ('order-3' if SIDEBAR_ON_LEFT else '') %}
 {% else %}
