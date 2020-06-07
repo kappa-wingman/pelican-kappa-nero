@@ -899,3 +899,25 @@ td.linenos {
   vertical-align:top;
   background-color: var(--themeCodeBG);
 }
+
+/*
+div#id-extract-toc.toc ul.simple.list-group {
+   position: sticky !important;
+}
+*/
+
+/*
+#id-extract-toc {
+  position: sticky !important;
+}
+*/
+
+/* This is the important setting for scrollspy */
+#sb_Article_TOC {
+  position: sticky !important;
+}
+
+#sb_Article_TOC .active {
+       background-color: #202050 !important;
+       color: var(--themeColor) !important;
+}
