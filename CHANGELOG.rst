@@ -10,13 +10,16 @@ Use it at your own risk.
 - For this theme:
  
   - The changes and parameters are incompatible with
-    the original pelican-bootstrap3 and pelican-bootstrap3-nero or pelican-bootstrap4-nero.
-  - The theme is customized to my preference.
+    the original pelican-bootstrap3 and pelican-bootstrap3-nero or pelican-bootstrap4-nero
+  - The theme is customized to my preference
 
 Changes, newer changes on top
 -----------------------------
 
-- Include a KMP search js for tipue
+- Version 1.0.2
+
+  - Fixed scrollspy
+  - Include a KMP search javascript file for tipue
 
 - Version 1.0.1
   
