@@ -237,15 +237,34 @@
             $('#main_content').toggleClass( "col-xl-9 col-xl-7");
             // $('#sidebar').css( "margin-right", "2vw");
           })
-        }); // ending the doc ready function
 
+	{# Enable this section for smoother scrolling between sections#}
+	var navOffset = $('#navbar-ex1-collapse').height();
+	$('a[href^="#"]').click(function(event){
+       	  if (this.hash !== '') {
+            event.preventDefault();
+
+            const hash = this.hash;
+
+            $('html, body').animate (
+		{
+              	  scrollTop: $(hash).offset().top
+            	}
+	    ,670, function() {
+              	  window.location.hash = hash;
+		}
+            );
+          }
+	});
+
+        }); // ending the doc ready function
     </script>
 
 </head>
 
 <!-- For scroll spy -->
 {% if article and article.toc %}
-  <body data-spy="scroll" data-target="#sb_Article_TOC" data-offset="60">
+  <body data-spy="scroll" data-target="#sb_Article_TOC" data-offset="61">
 {% else %}
   <body>
 {% endif %}
