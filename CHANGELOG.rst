@@ -16,6 +16,10 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Version 1.0.3
+
+  - Got a better fix for clicking anchors and scroll in an article
+
 - Version 1.0.2
 
   - Fixed scrollspy
