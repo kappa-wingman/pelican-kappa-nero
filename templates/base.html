@@ -241,30 +241,39 @@
 	{# Enable this section for smoother scrolling between sections#}
 	var navOffset = $('#navbar-ex1-collapse').height();
 
-         $('a[href^="#"]').click(function(event){
-           {# not moving the page if the a#hash is the same #}
-           if (this.hash == window.location.hash) {
-             return false;
-           }
-	 });
-
+	{# https://stackoverflow.com/questions/4198041/jquery-smooth-scroll-to-an-anchor #}
 	var hashTagActive = "";
-	$(".scroll").on("click touchstart" , function (event) {
+	{# You need to replace toc-backref by your class for those anchors #}
+	$(".toc-backref").on("click touchstart" , function (event) {
+		//alert('in scrolling function');
 	  if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
             event.preventDefault();
             //calculate destination place
           var dest = 0;
+	  {#
+	  // Having a problem, almost never seen it used the upper part
+	  // if an anchor is at bottom of page it may have scrolling problem
+	  // for offset near 600-800
+	  #}
           if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
               dest = $(document).height() - $(window).height();
+		//alert ('upper');
           } else {
-              dest = $(this.hash).offset().top;
+              //dest = $(this.hash).offset().top;
+		{# hack #}
+              dest = $(this.hash).offset().top - ($(window).height()/2.5);
+		//alert ('lower');
           }
+		//alert(dest);
           //go to destination
           $('html,body').animate({
               scrollTop: dest
           }, 500, 'swing');
             hashTagActive = this.hash;
-          }
+          } else {
+		{# Not scolling if the hash id is the same #}
+		return false;
+	  }
 	});
 
         }); // ending the doc ready function
