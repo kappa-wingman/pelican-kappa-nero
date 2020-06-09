@@ -239,7 +239,7 @@
           })
 
 	{# Enable this section for smoother scrolling between sections#}
-	var navOffset = $('#navbar-ex1-collapse').height();
+	//var navOffset = $('#navbar-ex1-collapse').height();
 
 	{# https://stackoverflow.com/questions/4198041/jquery-smooth-scroll-to-an-anchor #}
 	var hashTagActive = "";
@@ -264,6 +264,7 @@
               dest = $(this.hash).offset().top - ($(window).height()/2.5);
 		//alert ('lower');
           }
+	
 		//alert(dest);
           //go to destination
           $('html,body').animate({
