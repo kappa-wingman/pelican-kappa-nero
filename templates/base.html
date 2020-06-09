@@ -241,6 +241,11 @@
 	{# Enable this section for smoother scrolling between sections#}
 	var navOffset = $('#navbar-ex1-collapse').height();
 	$('a[href^="#"]').click(function(event){
+		{# not moving the page if the a#hash is the same #}
+       	  if (this.hash == window.location.hash) {
+		return false;
+	  }
+
        	  if (this.hash !== '') {
             event.preventDefault();
 
@@ -248,9 +253,9 @@
 
             $('html, body').animate (
 		{
-              	  scrollTop: $(hash).offset().top
-            	}
-	    ,670, function() {
+              	  scrollTop: $(hash).offset().top -500
+            	},
+	    450, function() {
               	  window.location.hash = hash;
 		}
             );
