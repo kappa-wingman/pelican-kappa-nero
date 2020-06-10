@@ -835,12 +835,12 @@ pre.code.literal-block { border: 1px solid; }
 /* For navbar */
 
 /* drop down button (categories) */
-#navbarDropDownMenu1 {
+#navbarDropDownMenu1, #navbarSearchDropDownMenu {
 	background-image: var(--themeBGImg);
 	/*padding-top: 20px;*/
 	/*padding-bottom: 10px;*/
 	/*padding-left: 2px;*/
-	padding-right: 7px;
+	padding-right: 5px;
     	color:		goldenrod;
 }
 

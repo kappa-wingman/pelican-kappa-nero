@@ -356,6 +356,15 @@
                       {% endfor %}
                 {% endif %}
 
+		<li class="nav-item dropdown">
+                  <a class="nav-item nav-link dropdown-toggle" id="navbarSearchDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Search</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarSearchDropDownMenu">
+			<a class="dropdown-item"
+                           href="{{ SITEURL }}/tipuesearch.html">Old search using Tipue
+                        </a>
+                    </div> <!-- dropdown-menu -->
+                </li>
+
             </ul> <!-- <ul class="nav navbar-nav"> -->
             <ul class="nav navbar-nav ml-auto">
             {#{% if 'tipue_search' in PLUGINS %}
