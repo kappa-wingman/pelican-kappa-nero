@@ -159,7 +159,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     {% endif %}
 
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     {# <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script> #}
@@ -179,7 +179,7 @@
 
       <!-- Meilisearch -->
     {% if MEILISEARCH %}
-      <script async src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.js" integrity="sha256-HiwiYtA7ErgfEodZplJy+pJuDafYJmVT0q3CpSwZOuQ=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.js" integrity="sha256-HiwiYtA7ErgfEodZplJy+pJuDafYJmVT0q3CpSwZOuQ=" crossorigin="anonymous"></script>
     {% endif %}
 
     <!-- jQuery For the sizing of top navbar to collapse sooner -->
@@ -368,7 +368,10 @@
                   <a class="nav-item nav-link dropdown-toggle" id="navbarSearchDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Search</a>
                     <div class="dropdown-menu" aria-labelledby="navbarSearchDropDownMenu">
 			<a class="dropdown-item"
-                           href="{{ SITEURL }}/tipuesearch.html">Old search using Tipue
+                           href="{{ SITEURL }}/meilisearch.html">New - Meilisearch
+                        </a>
+			<a class="dropdown-item"
+                           href="{{ SITEURL }}/tipuesearch.html">Old - Tipue search
                         </a>
                     </div> <!-- dropdown-menu -->
                 </li>
