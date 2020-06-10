@@ -1,6 +1,10 @@
 {% if MEILISEARCH %}
-<div class="row flex-row" id="meili_search_button">
-<input type="search" id="search-bar-input" placeholder="Search with Meilisearch" />
+
+<form>
+  <div class="form-group">
+{#<section class="sidebar card card-body mt-3 mb-3" id="sb_Meili_Search_Card">#}
+{#<div class="row flex-row" id="meili_search_button">#}
+<input type="search" class="form-control mt-3" id="search-bar-input" placeholder="Search" />
 	{# could be a problem calling docSerchBar (not exists) if the js is loaded with async #}
     <script>
     $(document).ready(function () {
@@ -13,5 +17,7 @@
       });
     });
     </script>
-</div>
+  </div>
+</form>
+{#</section>#}
 {% endif %}
