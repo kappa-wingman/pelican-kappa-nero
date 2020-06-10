@@ -82,6 +82,9 @@
     {% if 'tipue_search' in PLUGINS %}
     <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
+    {% if MEILISEARCH %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.css" integrity="sha256-YJmHJqD0PySDaE2OEbe7D/Qx4CZ+Chf23Rk/iLfkqr0=" crossorigin="anonymous">
+    {% endif %}
     {% if DOCUTIL_CSS %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
     {% endif %}
@@ -172,6 +175,11 @@
       <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/copybutton.js"></script>
       <!-- https://github.com/zenorocha/clipboard.js -->
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha384-x6nRSkfSsKGBsvlLFHHNju+buS3zYUztVnTRz/0JKgOIk3ulS6bNce/vHOvYE2eY" crossorigin="anonymous"></script>
+    {% endif %}
+
+      <!-- Meilisearch -->
+    {% if MEILISEARCH %}
+      <script async src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.js" integrity="sha256-HiwiYtA7ErgfEodZplJy+pJuDafYJmVT0q3CpSwZOuQ=" crossorigin="anonymous"></script>
     {% endif %}
 
     <!-- jQuery For the sizing of top navbar to collapse sooner -->
