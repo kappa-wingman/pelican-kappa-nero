@@ -16,6 +16,8 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Apply a newer version of tipueseach lite
+
 - Version 1.0.4
 
   - Meilisearch as default search
