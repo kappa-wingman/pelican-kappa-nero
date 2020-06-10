@@ -73,3 +73,8 @@ Use it at your own risk.
 * Include a KMP search js for tipue
 	* TIPUESEARCH_KMP = True
 	* Credit goes to [Psychoinformatics.de](https://github.com/psychoinformatics-de/inm7-docs/tree/master/theme/static/tsl)
+* Meilisearch
+	* MEILISEARCH = True
+	* MEILISEARCH_SERVER_URL = 'https://your meilisearch app url'
+	* MEILISEARCH_API_KEY = 'KEY', note public key is enough
+	* MEILISEARCH_INDEX_UID = 'docs', replace by your index uid

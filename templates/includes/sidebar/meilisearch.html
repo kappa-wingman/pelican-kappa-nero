@@ -2,16 +2,14 @@
 
 <form>
   <div class="form-group">
-{#<section class="sidebar card card-body mt-3 mb-3" id="sb_Meili_Search_Card">#}
-{#<div class="row flex-row" id="meili_search_button">#}
 <input type="search" class="form-control mt-3" id="search-bar-input" placeholder="Search" />
 	{# could be a problem calling docSerchBar (not exists) if the js is loaded with async #}
     <script>
     $(document).ready(function () {
       docsSearchBar({
-        hostUrl: "{{ MEILISEAECH_SERVER_URL}}",
-        apiKey: "aad1c01a3324a1d773c8b42f1b06d4d39602dc6c88430c7068333830c170a919",
-        indexUid: "docs",
+        hostUrl: "{{ MEILISEARCH_SERVER_URL }}",
+        apiKey: "{{ MEILISEARCH_API_KEY }}",
+        indexUid: "{{ MEILISEARCH_INDEX_UID }}",
         inputSelector: "#search-bar-input",
         debug: true // Set debug to true if you want to inspect the dropdown
       });
@@ -19,5 +17,4 @@
     </script>
   </div>
 </form>
-{#</section>#}
 {% endif %}

@@ -16,6 +16,11 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Version 1.0.4
+
+  - Meilisearch as default search
+  - Retains the old tipusearch in a separate page
+
 - Version 1.0.3
 
   - Got a better fix for clicking anchors and scroll in an article
