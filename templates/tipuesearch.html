@@ -30,5 +30,12 @@
 {% endblock %}
 
 {% block content %}
+{% if 'tipue_search' in PLUGINS %}
+<div class="row flex-row mt-2" id="tipue_search_button">
+  <form class="navbar-search" action="{{ SEARCH_URL | default('/tipuesearch.html') }}">
+    <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="tipue_Search" required>
+  </form>
+</div>
+{% endif %}
 <div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
 {% endblock %}

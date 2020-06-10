@@ -835,12 +835,12 @@ pre.code.literal-block { border: 1px solid; }
 /* For navbar */
 
 /* drop down button (categories) */
-#navbarDropDownMenu1 {
+#navbarDropDownMenu1, #navbarSearchDropDownMenu {
 	background-image: var(--themeBGImg);
 	/*padding-top: 20px;*/
 	/*padding-bottom: 10px;*/
 	/*padding-left: 2px;*/
-	padding-right: 7px;
+	padding-right: 5px;
     	color:		goldenrod;
 }
 
@@ -920,4 +920,62 @@ div#id-extract-toc.toc ul.simple.list-group {
 #sb_Article_TOC .active {
        background-color: #202050 !important;
        color: var(--themeColor) !important;
+}
+
+/* Meilisearch docsearchbar */
+
+.dsb-dataset-1 {
+  background-color: #c7c7c7 !important;
+}
+
+.dsb-suggestions {
+  background-color: #767676 !important;
+}
+
+.docs-searchbar-suggestion--category-header, .meilisearch-autocomplete .docs-searchbar-suggestion--wrapper {
+  background-color: #b7b7b7 !important;
+}
+
+.meilisearch-autocomplete .docs-searchbar-footer {
+  color: black;
+}
+
+/* Main dropdown wrapper */
+.meilisearch-autocomplete .dsb-dropdown-menu {
+  width: 500px;
+}
+
+/* Main category */
+.meilisearch-autocomplete .docs-searchbar-suggestion--category-header {
+  //color: darkgray;
+  color: black;
+  //color: var(--themeColor);
+  border: 1px solid gray;
+}
+
+/* Category */
+.meilisearch-autocomplete .docs-searchbar-suggestion--subcategory-column {
+  //color: gray;
+  color: black;
+  //color: var(--themeColor);
+}
+
+/* Title */
+.meilisearch-autocomplete .docs-searchbar-suggestion--title {
+  font-weight: bold;
+  color: black;
+  //color: white;
+}
+
+/* Description */
+.meilisearch-autocomplete .docs-searchbar-suggestion--text {
+  font-size: 0.8rem;
+  //color: gray;
+  color: white;
+  //color: var(--themeColor);
+}
+
+/* Highlighted text */
+.meilisearch-autocomplete .docs-searchbar-suggestion--highlight {
+  color: blue;
 }
