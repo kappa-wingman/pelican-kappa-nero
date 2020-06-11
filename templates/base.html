@@ -253,26 +253,35 @@
 	var hashTagActive = "";
 	{# You need to replace toc-backref by your class for those anchors #}
 	$(".toc-backref").on("click touchstart" , function (event) {
+		// Disable scrolling on anchors in main articles
+		// No solution works for both desktop and smartphone
+		return false;
+
 		//alert('in scrolling function');
 	  if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
             event.preventDefault();
             //calculate destination place
           var dest = 0;
 	  {#
-	  // Having a problem, almost never seen it used the upper part
+	  // Having problems
+	  // 1) browsing using smartphone is different from desktop
+	  // 2) almost never seen it used the upper part
 	  // if an anchor is at bottom of page it may have scrolling problem
 	  // for offset near 600-800
 	  #}
           if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
+		//alert ('upper function');
               dest = $(document).height() - $(window).height();
-		//alert ('upper');
           } else {
+		//alert ('lower function');
               //dest = $(this.hash).offset().top;
 		{# hack #}
               dest = $(this.hash).offset().top - ($(window).height()/2.5);
-		//alert ('lower');
           }
-	
+	  if (dest < 0) {
+		//alert ('less than zero');
+             //dest =
+	  }	
 		//alert(dest);
           //go to destination
           $('html,body').animate({
