@@ -16,7 +16,11 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
-- Apply a newer version of tipueseach lite
+- Version 1.0.5
+
+  - Update layout
+  - Fix clicking anchor/links in main content using smartphones
+  - Apply a newer version of tipueseach lite
 
 - Version 1.0.4
 
