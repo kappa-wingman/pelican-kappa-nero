@@ -2,25 +2,24 @@
   {% from 'includes/sidebar/macros.jinja' import title %}
 
 <!-- Sidebar/Archive -->
+<section class="sidebar bg-dark mb-3" id="sb_Section_Archive">
 <div class="accordion" id="sb_accordion_Archive">
   <div class="card">
     <div class="card-header" id="sb_Archive_Heading">
-      <!-- <h2 class="mb-0"> -->
         <!-- <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_sb_Archive" aria-expanded="true" aria-controls="collapse_sb_Archive"> -->
         <span role="navigation" class="collapsed" data-toggle="collapse" data-target="#collapse_sb_Archive" aria-expanded="true" aria-controls="collapse_sb_Archive">
 	  <i data-feather="chevron-up" class="float-xs-left"> </i>
 	Archives
         </span>
-      <!-- </h2> -->
     </div>
 
-    <div id="collapse_sb_Archive" class="collapse multi-collapse" aria-labelledby="sb_Archive_Heading" data-parent="#sb_accordion_Archive">
-         <p style="text-align: center"><a href="{{ SITEURL }}/archives.html">* All archives</a></p>
+    <div id="collapse_sb_Archive" class="collapse multi-collapse ml-4" aria-labelledby="sb_Archive_Heading" data-parent="#sb_accordion_Archive">
+         <p><a href="{{ SITEURL }}/archives.html">All archives</a></p>
     {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
       {% for month, articles in date_year|groupby( 'date.month' )|sort(reverse=True) %}
-        <p style="text-align: center">
+        <p>
           <a href="{{ SITEURL }}/{{ MONTH_ARCHIVE_SAVE_AS.format(date=articles[0].date) }}">
-            *  {{ year }} {{ articles[0].date.strftime('%B') }} ({{ articles|count }})
+            {{ year }} {{ articles[0].date.strftime('%B') }} ({{ articles|count }})
           </a>
        </p>
       {% endfor %}
@@ -28,5 +27,6 @@
     </div>
   </div>
 </div>
+</section>
 <!-- End Sidebar/Archive -->
 {% endif %}

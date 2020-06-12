@@ -13,8 +13,8 @@
 <!-- Sidebar/Tag Cloud -->
 <!--<section class="card"> -->
 <li class="list-group-item">
-  {#<a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4>{{ title(_('Tags'), DISABLE_SIDEBAR_TITLE_ICONS, icon='tags') }}</h4></a>#}
-  <a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4>{{ title(_('Tags'), DISABLE_SIDEBAR_TITLE_ICONS, icon='tag') }}</h4></a>
+  {#<a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4>{{ title(_('Tag Cloud'), DISABLE_SIDEBAR_TITLE_ICONS, icon='tags') }}</h4></a>#}
+  <a href="{{ SITEURL }}/{{ TAGS_URL }}"><h4>{{ title(_('Tag Cloud'), DISABLE_SIDEBAR_TITLE_ICONS, icon='tag') }}</h4></a>
   <div class="row">
   <div class="col-11 offset-1 mt-3 {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tagcloud-tags">
     {% for tag in tags %}
@@ -28,6 +28,5 @@
   </div>
 </div>
 </li>
-<!-- </section>-->
 <!-- End Sidebar/Tag Cloud -->
 {% endif %}
