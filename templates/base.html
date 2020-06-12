@@ -253,9 +253,13 @@
 	var hashTagActive = "";
 	{# You need to replace toc-backref by your class for those anchors #}
 	$(".toc-backref").on("click touchstart" , function (event) {
+		{#
 		// Disable scrolling on anchors in main articles
 		// No solution works for both desktop and smartphone
-		return false;
+		// Found out that disabling scrolling would make
+		// Scroll Spy won't work
+		#}
+		//return false;
 
 		//alert('in scrolling function');
 	  if(hashTagActive != this.hash) { //this will prevent if the user click several times the same link to freeze the scroll.
@@ -268,6 +272,7 @@
 	  // 2) almost never seen it used the upper part
 	  // if an anchor is at bottom of page it may have scrolling problem
 	  // for offset near 600-800
+	  // 3) For smartphone, it would scroll to the top
 	  #}
           if ($(this.hash).offset().top > $(document).height() - $(window).height()) {
 		//alert ('upper function');
@@ -280,7 +285,14 @@
           }
 	  if (dest < 0) {
 		//alert ('less than zero');
-             //dest =
+		{#
+		// usually dest = -480 for this case in mobile view
+		// revent the screen scroll but Scroll Spy still works
+		alert (dest);
+		alert ($(document).height());
+	        alert ($(window).height());
+		#}
+		e.preventDefault();
 	  }	
 		//alert(dest);
           //go to destination
