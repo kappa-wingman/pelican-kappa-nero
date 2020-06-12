@@ -2,11 +2,11 @@
 
 html {
   scroll-behavior: smooth;
-  --themeBG:		#121212;
-  --themeSecondBG:	#262626;
-  --themeBGImg:		linear-gradient(#262626, #262626, #262626);
+  --themeBG:		#030303;
+  --themeSecondBG:	#252525;
+  --themeBGImg:		linear-gradient(#252525, #252525, #252525);
   --themeCodeBG:	#202020;
-  --themeColor:		#d6d6d6;
+  --themeColor:		#d3d3d3;
   --rootScrollBarThumb: rgb(180,180,180);
   --rootScrollBarColor: rgb(54,60,64);
   --leftScrollBarThumb: #929292;
