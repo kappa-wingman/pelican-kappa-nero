@@ -591,6 +591,16 @@ the current vesion of the ert plugin do not have this id (emtpy id) */
     border-bottom-style: solid !important;
 }
 
+#main_content h2 {
+    padding-top: 2vw;
+}
+
+#main_content h2>a:link,
+#main_content h2>a:visited {
+    color:  var(--themeColor);
+    border-bottom-style: none;
+}
+
 .summary a:link,
 .summary a:visited {
     color:  var(--themeColor);
