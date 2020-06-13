@@ -999,9 +999,11 @@ div#id-extract-toc.toc ul.simple.list-group {
   word-break: break-word !important;
   overflow-wrap: break-word !important;
 
+/*
 -webkit-hyphens: auto;
    -moz-hyphens: auto;
         hyphens: auto;
+*/
 }
 
 /* Title */

@@ -16,7 +16,7 @@ Use it at your own risk.
 ## Usage
 
 * Known problems
-	* If main content column uses col-xl-auto, the tables or converted code block with lines by default are not table responsive
+	* If main content column uses col-xl-auto, the tables or converted code block with line numbers by default are not table responsive
 	* DISABLE_SIDEBAR_TITLE_ICONS would not work because of code changes
 	* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
 	* DISPLAY_BREADCRUMBS is not working. Related code was not migrated to Bootstrap 4
