@@ -440,6 +440,10 @@
 {% endif %}
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row wrapper flex-lg-nowrap">
+	{# Create a left sidebar and then hide it
+	Chrome may temp display the left sidebar content and hidden it #}
+	{# If not 'creating' the left sidebar, the page without toc would move the starting position to left #}
+
 	{#{% if article %}
 	  {% if article.toc %}#}
         {% if sb_doc_nav_class %}
