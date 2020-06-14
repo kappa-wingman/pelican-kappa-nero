@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{ _('Search') }} - {{ super() }}
+{{ _('MeiliSearch') }} - {{ super() }}
 {% endblock %}
 
 {% block scripts %}
@@ -14,6 +14,7 @@
     <div class="column wrapper flex-lg-nowrap">
 {% if MEILISEARCH %}
   <div class="mt-4 mb-4" id="meili_search_button">
+  <h1>MeiliSearch</h1>
   <input type="search" id="search-bar-input" placeholder="Search with Meilisearch" />
         {# could be a problem calling docSerchBar (not exists) if the js is loaded with async #}
     <script>
