@@ -187,6 +187,11 @@ a:visited {
     color: var(--themeColor);
 }
 
+.btn-more {
+    background-color: var(--themeSecondBG);
+    color: goldenrod !important;
+}
+
 /* not in BS4, but some elements may still define those classes */
 .well, .panel-body,
 .pager .previous>a, .pager .previous>span,
