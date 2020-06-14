@@ -3,7 +3,9 @@
 <!-- <button class="sb_doc_nav_closeButton" onclick="sb_doc_nav_close()" -->
 
 <!-- Use jQuery and onclick for toggling -->
-<button class="btn" id="sb_doc_nav_closeButton" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
+{% if article and article.toc %}
+  <button class="btn" id="sb_doc_nav_closeButton" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
+{% endif %}
 
 <!-- tried to use navbar-toggler/collapse, but collapse is not working -->
 {#
@@ -13,6 +15,7 @@
 
 <!-- need a scrollbar for the toc and won't scroll with the main screen -->
 {% include 'includes/sidebar/article-toc.html' ignore missing %} 
+
 {# <section class="card card-body mb-3 bg-faded p-1 mb-3"> #}
 {# </section> #}
 
