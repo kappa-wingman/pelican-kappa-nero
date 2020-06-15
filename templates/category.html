@@ -3,6 +3,9 @@
 {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ category }}" />
+  {% if NOINDEX_CATEGORY %}
+    <meta name="robots" content="noindex">
+  {% endif %}
 {% endblock %}
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}

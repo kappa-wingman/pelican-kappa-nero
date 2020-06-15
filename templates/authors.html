@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
+{% block meta %}
+  {% if NOINDEX_AUTHOR %}
+   <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock %}
+
 {% block title %}{{ _('Authors') }} - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}

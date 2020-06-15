@@ -1,5 +1,11 @@
 {% extends "article_list.html" %}
 
+{% block meta %}
+  {% if NOINDEX_AUTHOR %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock %}
+
 {% block title %}{{ _('Articles by') }} {{ author }} - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}

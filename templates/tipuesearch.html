@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+  {% if NOINDEX_SEARCH %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock %}
+
 {% block title %}
 {{ _('Tipue Search') }} - {{ super() }}
 {% endblock %}

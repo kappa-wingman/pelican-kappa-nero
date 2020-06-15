@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
+{% block meta %}
+  {% if NOINDEX_CATEGORIES_PAGE %}
+    <meta name="robots" content="noindex">
+  {% endif %}
+{% endblock %}
+
 {% block title %}{{ _('Categories') }} - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}
