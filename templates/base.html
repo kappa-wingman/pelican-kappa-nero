@@ -386,10 +386,18 @@
 		<li class="nav-item dropdown">
                   <a class="nav-item nav-link dropdown-toggle" id="navbarSearchDropDownMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Search</a>
                     <div class="dropdown-menu" aria-labelledby="navbarSearchDropDownMenu">
-			<a class="dropdown-item"
+			<a {% if output_file == 'meilisearch.html' %}
+                             class="dropdown-item active"
+                           {% else %}
+                             class="dropdown-item"
+                           {% endif %}
                            href="{{ SITEURL }}/meilisearch.html">New - Meilisearch
                         </a>
-			<a class="dropdown-item"
+			<a {% if output_file == 'tipuesearch.html' %}
+                             class="dropdown-item active"
+                           {% else %}
+                             class="dropdown-item"
+                           {% endif %}
                            href="{{ SITEURL }}/tipuesearch.html">Tipue search with KMP
                         </a>
                     </div> <!-- dropdown-menu -->
