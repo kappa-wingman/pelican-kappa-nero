@@ -4,16 +4,19 @@
 
 <!-- Use jQuery and onclick for toggling -->
 {% if article and article.toc %}
-  <button class="btn" id="sb_doc_nav_closeButton" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
+  {#<button class="btn" id="sb_doc_nav_closeButton" style="width: 100%; align-self:flex-start">☰ Close sidebar</button>#}
+  <button class="btn" id="sb_doc_nav_closeButton"
+  style="width: 100%; align-self:flex-start">
+<i data-feather="chevron-left" class="float-xs-left"></i></button>
 {% endif %}
 
-<!-- tried to use navbar-toggler/collapse, but collapse is not working -->
 {#
+<!-- tried to use navbar-toggler/collapse, but collapse is not working -->
 <button class="btn navbar-toggler" type="button" id="sb_doc_nav_closeButton" data-toggle="collapse" aria-expanded="false" data-target="#sb_doc_nav"
  style="width: 100%; align-self:flex-start">☰ Close sidebar</button>
 #}
 
-<!-- need a scrollbar for the toc and won't scroll with the main screen -->
+{#<!-- need a scrollbar for the toc and won't scroll with the main screen -->#}
 {% include 'includes/sidebar/article-toc.html' ignore missing %} 
 
 {# <section class="card card-body mb-3 bg-faded p-1 mb-3"> #}

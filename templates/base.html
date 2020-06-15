@@ -451,7 +451,9 @@
 	{#{% if article %}
 	  {% if article.toc %}#}
         {% if sb_doc_nav_class %}
-	<button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">☰</button>
+	  {#<button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">☰</button>#}
+	  <button class="btn h-100 align-items-center" id="sb_doc_nav_openButton">
+		<i data-feather="chevron-right" class="float-xs-left"></i></button>
            <nav class="{{ sb_doc_nav_class }} nav navbar-nav collapse navbar-collapse" id="sb_doc_nav"> 
              <aside>
                 {% if not HIDE_SIDEBAR %}
