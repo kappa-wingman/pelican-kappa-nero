@@ -343,7 +343,11 @@
 		    <a class="nav-item nav-link dropdown-toggle" id="navbarDropDownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Categories</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropDownMenu1">
 		        {% if DISPLAY_CATEGORIES_ON_MENU %}
-			        <a class="dropdown-item"
+			        <a {% if output_file == CATEGORIES_URL %}
+				    class="dropdown-item active"
+				  {% else %}
+				    class="dropdown-item"
+				  {% endif %}
                                   href="{{ SITEURL }}/{{ CATEGORIES_URL }}">All categories
                                 </a>
 			    {% for cat, null in categories %}
