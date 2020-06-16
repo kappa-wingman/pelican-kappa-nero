@@ -55,9 +55,7 @@
     "dateModified": "{{ article.date.strftime("%Y-%m-%d") }}",
     {% endif %}
     "author": {
-      "@type": "Person",
-      "name": "{{ article.author.name }}",
-      "url": "{{ SITEURL }}/{{ article.author.url }}"
+      "@id": "{{ SITEURL }}/{{ article.author.url }}"
     },
     "url": "{{ SITEURL }}/{{ article.url }}",
     {% if article.tags %}
@@ -77,6 +75,17 @@
 	"url": "{{ SITEURL }}/{{ PUBLISHER_LOGO }}"
       }
     }
+  },
+  {
+    "@type": [ "Person" ],
+      "@id": "{{ SITEURL }}/{{ article.author.url }}",
+      "url": "{{ SITEURL }}/{{ article.author.url }}",
+      "name": "{{ article.author.name }}"
+	{% if JSON_LD_AUTHOR_SAME_AS %}
+      ,"sameAs": [
+	  {{ JSON_LD_AUTHOR_SAME_AS }}
+      ]
+	{% endif %}
   }
   {% endif %}
   {% if "{{ JSON_LD_BREADCRUMBLIST }}" %}

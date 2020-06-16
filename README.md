@@ -62,7 +62,9 @@ Use it at your own risk.
 * JSON_LD_BREADCRUMBLIST = True
 	* If both JSON_LD is also enabled:
 	* Add type BreadcrumbList for all html
-	* Note: there is an option DISPLAY_BREADCRUMBS and have visible breadcrumbs and actually added some schema for breadcrumbs. Google search engine would take the value from that. I do not know clearly what is performed by search engine if both Breadcrumb support is enabled in both JSON-LD BREADCRUME and DISPLAY_BREADCRUMS are enabled.
+	* Note: there is an option DISPLAY_BREADCRUMBS and have visible breadcrumbs and actually added some schema for breadcrumbs. Google search engine would take the value from that. I do not know clearly what is performed by search engine if both Breadcrumb support is enabled in both JSON-LD BREADCRUME and DISPLAY_BREADCRUMS are enabled
+* JSON_LD_AUTHOR_SAME_AS = '"https://URL-1", "https://URL-2"'
+	* Update it to your links for the sameAs attribute for author. Assume there is only one author for this blog and multiple authors are not supported
 * Copy button on the top right corner of all "div.highlight pre" elements
 	* SPHINX_COPYBUTTON = True
 	* Adopted from [sphinx copybutton](https://github.com/executablebooks/sphinx-copybutton)
