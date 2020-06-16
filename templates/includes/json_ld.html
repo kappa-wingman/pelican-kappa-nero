@@ -2,8 +2,14 @@
 [
 {
   "@context": "http://schema.org",
-  "@type": "Blog",
-  "name": "{{ SITENAME }}",
+  "@type": "WebPage",
+  {% if article %}
+    "name": "{{ article.title|striptags|escape }}",
+  {% elif page %}
+    "name": "{{ page.title|striptags|escape }}",
+  {% else %}
+    "name": "{{ SITENAME }}",
+  {% endif %}
   {% if article %}
     {% if article.description %}
   "description": "{{ article.description }}",
