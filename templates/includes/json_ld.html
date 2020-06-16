@@ -2,6 +2,13 @@
 { "@context": "http://schema.org",
   "@graph": [
   {
+    "@type": "WebSite",
+    "@id": "{{ SITEURL }}",
+    "url": "{{ SITEURL }}",
+    "name": "{{ SITENAME }}",
+    "description": "{{ SITE_DESCRIPTION }}"
+  },
+  {
     "@context": "http://schema.org",
     "@type": "WebPage",
     {% if article %}
@@ -21,12 +28,15 @@
       {% endif %}
     {% endif %}
     {% if article %}
-      "url": "{{ SITEURL }}/{{ article.url }}"
+      "url": "{{ SITEURL }}/{{ article.url }}",
     {% elif page %}
-      "url": "{{ SITEURL }}/{{ page.url }}"
+      "url": "{{ SITEURL }}/{{ page.url }}",
     {% else %}
-      "url": "{{ SITEURL }}"
+      "url": "{{ SITEURL }}",
     {% endif %}
+    "isPartOf": {
+      "@id": "{{ SITEURL }}"
+    }
   }
   {% if article %}
   ,{
