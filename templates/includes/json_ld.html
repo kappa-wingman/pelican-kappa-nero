@@ -19,12 +19,18 @@
   "description": "{{ SITE_DESCRIPTION }}",
     {% endif %}
   {% endif %}
-  "url": "{{ SITEURL }}"
+  {% if article %}
+    "url": "{{ SITEURL }}/{{ article.url }}"
+  {% elif page %}
+    "url": "{{ SITEURL }}/{{ page.url }}"
+  {% else %}
+    "url": "{{ SITEURL }}"
+  {% endif %}
 }
 {% if article %}
 ,{
   "@context": "http://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ SITEURL }}/{{ article.url }}"
