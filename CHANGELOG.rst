@@ -16,6 +16,10 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Version 1.0.6
+  - Update layout
+  - Update JSON-LD settings 
+
 - Version 1.0.5
 
   - Update layout
