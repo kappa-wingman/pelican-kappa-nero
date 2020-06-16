@@ -6,7 +6,16 @@
     "@id": "{{ SITEURL }}",
     "url": "{{ SITEURL }}",
     "name": "{{ SITENAME }}",
-    "description": "{{ SITE_DESCRIPTION }}"
+    "description": "{{ SITE_DESCRIPTION }}",
+    "author": {
+      "url": "{{ SITEURL }}",
+      "name": "{{ AUTHOR }}"
+        {% if JSON_LD_AUTHOR_SAME_AS %}
+      ,"sameAs": [
+          {{ JSON_LD_AUTHOR_SAME_AS }}
+      ]
+        {% endif %}
+    }
   },
   {
     "@context": "http://schema.org",
