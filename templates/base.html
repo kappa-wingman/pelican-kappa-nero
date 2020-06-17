@@ -79,20 +79,25 @@
     {# <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet"> #}
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+
     {% if 'tipue_search' in PLUGINS %}
     <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
+
     {% if MEILISEARCH %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.css" integrity="sha256-YJmHJqD0PySDaE2OEbe7D/Qx4CZ+Chf23Rk/iLfkqr0=" crossorigin="anonymous">
     {% endif %}
+
     {% if DOCUTIL_CSS %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
     {% endif %}
+
     {% if TYPOGRIFY %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet">
     {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
-    <!-- CSS specifc for this theme -->
+
+    {# CSS specifc for this theme #}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/nero.css" type="text/css"/>
     {% if SPHINX_COPYBUTTON %}
     <!-- copy button -->
@@ -144,14 +149,15 @@
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css" integrity="sha256-C67K138e/S3hB+dnmeShAIyK2w9c8WkxhE7r6a7PJjY=" crossorigin="anonymous">
 <noscript>
-  <link rel="stylesheet"
+<link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css" integrity="sha256-C67K138e/S3hB+dnmeShAIyK2w9c8WkxhE7r6a7PJjY=" crossorigin="anonymous">
 </noscript>
 
+{#
     <!-- https://jquery.com/download -->
     <!-- https://github.com/jquery/jquery/releases -->
     <!-- Using jquery 3.5.1 -->
-
+#}
     {% if 'tipue_search' in PLUGINS %}
       {#src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"#}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
@@ -182,8 +188,10 @@
       <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.5/dist/cdn/docs-searchbar.min.js" integrity="sha256-HiwiYtA7ErgfEodZplJy+pJuDafYJmVT0q3CpSwZOuQ=" crossorigin="anonymous"></script>
     {% endif %}
 
-    <!-- jQuery For the sizing of top navbar to collapse sooner -->
     <script type="text/javascript">
+
+    {#
+    <!-- jQuery For the sizing of top navbar to collapse sooner -->
       $('#monitor').html($(window).width());
 
       $(window).resize(function() {
@@ -191,16 +199,19 @@
         var viewportWidth = $(window).width();
         $('#monitor').html(viewportWidth);
       });
+     #}
 
-        {# for highlighttable converted by pygments wrap under table-responsive
+	{# for highlighttable converted by pygments wrap under table-responsive
          for table converted by docutils and wrap under table-responsive
 	#}
       $(document).ready(function () {
 	//alert('ready section');	
 	$(".highlighttable").wrap("<div class='table-responsive'></div>");
 	$("table.docutils").wrap("<div class='table-responsive'></div>");
-	//$(".highlighttable").wrap("<div class='table table-striped table-responsive'></div>");
-	//$("table.docutils").wrap("<div class='table table-striped table-responsive'></div>");
+	{#
+	$(".highlighttable").wrap("<div class='table table-striped table-responsive'></div>");
+	$("table.docutils").wrap("<div class='table table-striped table-responsive'></div>");
+	#}
 
 	{#
 	 For scrollspy, nav-pills works, list-group not working/nothing shown
@@ -218,15 +229,16 @@
         $("div#id-extract-toc.toc ul.simple.nav li").addClass("nav-item");
         $("div#id-extract-toc.toc ul.simple.nav li.nav-item a").addClass("nav-link");
 
-       // For doc nav sidebar open/close behaviour
-          $('#sb_doc_nav_closeButton').on('click', function () {
+        // For doc nav sidebar open/close behaviour
+        $('#sb_doc_nav_closeButton').on('click', function () {
             //alert('toggled');
 
-		// jQueryUI provides methods for duration of animation
+		{# jQueryUI provides methods for duration of animation
 	// side bar doc nav has several methods
 	// hidden, hide the left sidebar, main_content, right sidebar don't move
 	// toggle, hide the left sidebar, main_content resize
 	// move, left side bar move out of screen (margin-left), main_content resize 
+		#}
 
             //$('#sb_doc_nav').toggleClass('hidden');
             //$('#sb_doc_nav').toggleClass('toggle');
@@ -318,16 +330,18 @@
   <body>
 {% endif %}
 
+{#
 <!-- <div class="navbar navbar-default {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-dark bg-inverse{% else %}navbar-light{% endif %} fixed-top navbar-expand-lg" role="navigation"> -->
 
 <!-- fixed-top -->
+#}
 
 <header class="navbar navbar-default {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-dark bg-inverse{% else %}navbar-light{% endif %} navbar-expand-lg flex-column flex-lg-row" id="top_navbar">
     <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle-navigation">
             {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
 		<span>
-		  <!-- <i class="fa fa-bars"></i> -->
+		  {#<!-- <i class="fa fa-bars"></i> -->#}
 		  <i data-feather="menu"></i>
 		</span>
             </button>
@@ -421,8 +435,10 @@
     </div> <!-- navbar container -->
 </header> <!-- header -->
 
+{#
 <!-- some space after the top banner -->
 <!-- <div class="pb-2 mb-2"> </div> -->
+#}
 
 <!-- Banner -->
 {% if BANNER and BANNER_ALL_PAGES %}
@@ -512,7 +528,7 @@
 {% endif %}
 {% include 'includes/sidebar/github-js.html' %}
 {% include 'includes/disqus_script.html' %}
-<!-- Disable include of includes/ga.html, as the default one had no consent checking -->
+{#<!-- Disable include of includes/ga.html, as the default one had no consent checking -->#}
 {% include 'includes/ga_check_consent.html' %}
 {% include 'includes/piwik.html' %}
 

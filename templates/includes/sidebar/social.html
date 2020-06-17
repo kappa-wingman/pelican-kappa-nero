@@ -13,10 +13,12 @@
         {% set name_sanitized = s[0]|lower|replace('+','-plus')|replace(' ','-') %}
       {% endif %}
 
-      {% if name_sanitized in [ 'twitter', 'rss', 'github', 'mail', 'instagram', 'home', 'user', 'users', 'gitlab'] %}
+      {% if name_sanitized in [ 'twitter', 'rss', 'github', 'mail', 'instagram', 'home', 'user', 'users', 'gitlab' ] %}
         {% set iconattributes = '' ~ name_sanitized ~ '' %}
       {% elif name_sanitized in [ 'reddit' ] %}
         {% set iconattributes = 'message-circle' %}
+      {% elif name_sanitized in [ 'atom' ] %}
+        {% set iconattributes = 'rss' %}
       {% endif %}
     <li class="list-group-item"><a href="{{ s[1] }}"><i data-feather={{ iconattributes }}></i> {{ s[0] }}</a></li>
     {% endfor %}
