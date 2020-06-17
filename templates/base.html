@@ -205,6 +205,10 @@
          for table converted by docutils and wrap under table-responsive
 	#}
       $(document).ready(function () {
+
+	{# enable BS4 tooltip #}
+	$('[data-toggle="tooltip"]').tooltip();
+
 	//alert('ready section');	
 	$(".highlighttable").wrap("<div class='table-responsive'></div>");
 	$("table.docutils").wrap("<div class='table-responsive'></div>");

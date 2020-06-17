@@ -8,17 +8,20 @@
 <div class="accordion" id="sb_accordion_RecentPosts">
   <div class="card">
     <div class="card-header" id="sb_RecentPosts_Heading">
-      <!-- <h2 class="mb-0"> -->
+	{#
         <!-- <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse_sb_RecentPosts" aria-expanded="true" aria-controls="collapse_sb_RecentPosts">
 	-->
-        <span role="navigation" class="collapsed" data-toggle="collapse" data-target="#collapse_sb_RecentPosts" aria-expanded="true" aria-controls="collapse_sb_RecentPosts">
+	#}
+        <span role="navigation" class="collapsed btn" data-toggle="collapse"
+	data-target="#collapse_sb_RecentPosts" aria-expanded="true"
+	aria-controls="collapse_sb_RecentPosts">
 	<i data-feather="chevron-up" class="float-xs-left"> </i>
 	Recent Posts
         </span>
-      <!-- </h2> -->
     </div>
 
-    <div id="collapse_sb_RecentPosts" class="collapse multi-collapse" aria-labelledby="sb_RecentPosts_Heading" data-parent="#sb_accordion_RecentPosts">
+    <div id="collapse_sb_RecentPosts" class="collapse multi-collapse"
+    aria-labelledby="sb_RecentPosts_Heading" data-parent="#sb_accordion_RecentPosts">
       <div class="card card-body">
       {% for article in articles[:RECENT_POST_COUNT] %}
          <p><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>

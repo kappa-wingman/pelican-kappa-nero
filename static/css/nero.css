@@ -672,11 +672,12 @@ h4.panel-title {
     background-color: #323232;
 }
 
-/* IntenseDebate comment system*/
+/* IntenseDebate comment system */
 #idc-container-parent #idc-container,
 #idc-container-parent #idc-container div {
     background:         var(--themeSecondBG);
     color:              var(--themeColor);
+    border-radius: 0.20rem;
 }
 
 /* This leaves a strange white top border on the comment text area*/
