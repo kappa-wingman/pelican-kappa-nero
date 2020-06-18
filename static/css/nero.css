@@ -198,9 +198,12 @@ a:visited {
 .well, .panel-body,
 .pager .previous>a, .pager .previous>span,
 .pager .next>a, .pager .next>span,
-.pager li>a, .pager li>span,
-.page-item.active .page-link
+.pager li>a, .pager li>span
 {
+    background-color:  var(--themeSecondBG);
+}
+
+ul.pagination.justify-content-center .page-item.active .page-link {
     background-color:  var(--themeNavActiveBG);
 }
 

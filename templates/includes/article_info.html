@@ -2,13 +2,13 @@
     <!-- <span class="label label-default">Date</span> -->
     <span class="badge badge-dark">Date</span>
     <span class="published">
-        <i data-feather="calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+        <i data-feather="calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.date|strftime("%Y-%m-%d") }}</time>
     </span>
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
           <span class="badge badge-dark">{{ _('Modified') }}</span>
             <span class="modified">
-                <i data-feather="calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+                <i data-feather="calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.modified|strftime("%Y-%m-%d") }}</time>
             </span>
         {% endif %}
     {% endif %}
@@ -30,6 +30,7 @@
 
     {% if SHOW_ARTICLE_CATEGORY %}
         <span class="badge badge-dark">{{ _('Category') }}</span>
+	<i data-feather="list"></i>
         <a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
     {% endif %}
 
@@ -45,17 +46,18 @@
     <!-- Plugin: pelican-ert -->
     {% if article.ert %}
       <span class="label label-pelican-ert"></span>
-      <span>
-        <i data-feather="book-open"></i>
+      <span class="badge badge-dark">
         <b>Estimated Read Time:</b>
       </span>
+        <i data-feather="clock"></i>
       {{ article.ert|escape }}
     {% endif %}
 
     {% if article.ninja_level %}
       <span class="label label-ninja-level ml-2"></span>
-      <i data-feather="activity"></i>
-      <b>Ninja Level:</b>
+      <span class="badge badge-dark">
+	<b>Ninja Level:</b>
+      </span>
       {% for i in range( 1, 1 + article.ninja_level|int )  %}
         <i data-feather="star"></i>
       {% endfor %}
