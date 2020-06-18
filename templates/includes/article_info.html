@@ -52,6 +52,15 @@
       <strong>{{ article.ert|escape }}</strong>
     {% endif %}
 
+    {% if article.ninja_level %}
+      <span class="label label-ninja-level ml-1"></span>
+      <i data-feather="activity"></i>
+      Ninja Level:
+      {% for i in range( 1, 1 + article.ninja_level|int )  %}
+        <i data-feather="star"></i>
+      {% endfor %}
+    {% endif %}
+
     {% import 'includes/translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
 </footer><!-- /.post-info -->

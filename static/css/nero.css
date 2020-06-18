@@ -7,6 +7,7 @@ html {
   --themeBGImg:		linear-gradient(#252525, #252525, #252525);
   --themeCodeBG:	#202020;
   --themeColor:		#d3d3d3;
+  --themeNavActiveBG:   #323290;
   --rootScrollBarThumb: rgb(180,180,180);
   --rootScrollBarColor: rgb(54,60,64);
   --leftScrollBarThumb: #929292;
@@ -197,9 +198,10 @@ a:visited {
 .well, .panel-body,
 .pager .previous>a, .pager .previous>span,
 .pager .next>a, .pager .next>span,
-.pager li>a, .pager li>span
+.pager li>a, .pager li>span,
+.page-item.active .page-link
 {
-    background-color:  var(--themeSecondBG);
+    background-color:  var(--themeNavActiveBG);
 }
 
 /* BS4 For pagination at the bottom */
@@ -884,7 +886,7 @@ pre.code.literal-block { border: 1px solid; }
 }
 
 .dropdown-item.active {
-	background-color: #323290;
+	background-color: var(--themeNavActiveBG);
 }
 
 .dropdown-menu>li>a {
