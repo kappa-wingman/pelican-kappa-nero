@@ -1086,3 +1086,9 @@ div#id-extract-toc.toc ul.simple.list-group {
   border: 1px solid grey;
   border-radius: 0;
 }
+
+/* For categories.html */
+#categories .panel-body {
+  border-radius: 0.2rem;
+}
+
