@@ -1041,3 +1041,19 @@ div#id-extract-toc.toc ul.simple.list-group {
   color: blue;
 }
 
+
+.meilisearch-autocomplete ::-webkit-input-placeholder {
+   text-align: center;
+}
+
+.meilisearch-autocomplete :-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+.meilisearch-autocomplete ::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+.meilisearch-autocomplete :-ms-input-placeholder {  
+   text-align: center; 
+}

@@ -4,9 +4,9 @@
 <!-- Sidebar/Social -->
 <section class="sidebar card bg-dark card-body mb-3" id="sb_Social_Card">
 {#<!--<li class="list-group-item">-->#}
-  <div>{{ title(_('Social Contact'), DISABLE_SIDEBAR_TITLE_ICONS) }}</div>
+  {#<div>{{ title(_('Social Contact'), DISABLE_SIDEBAR_TITLE_ICONS) }}</div>#}
   {#<ul class="list-group" id="social">#}
-  <div class="d-flex flex-row mt-3" id="social">
+  <div class="d-flex flex-row justify-content-center mt-0" id="social">
     {% for s in SOCIAL %}
       {% if s[2] %}
         {% set name_sanitized = s[2]|lower|replace('+','-plus')|replace(' ','-') %}
