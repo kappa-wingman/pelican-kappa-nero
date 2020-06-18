@@ -16,7 +16,11 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Update layout of tags.html
+- Update icons and minor layout update
+
 - Version 1.0.6
+
   - Update layout
   - Update JSON-LD settings 
 
