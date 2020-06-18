@@ -49,13 +49,13 @@
         <i data-feather="book-open"></i>
         <b>Estimated Read Time:</b>
       </span>
-      <strong>{{ article.ert|escape }}</strong>
+      {{ article.ert|escape }}
     {% endif %}
 
     {% if article.ninja_level %}
-      <span class="label label-ninja-level ml-1"></span>
+      <span class="label label-ninja-level ml-2"></span>
       <i data-feather="activity"></i>
-      Ninja Level:
+      <b>Ninja Level:</b>
       {% for i in range( 1, 1 + article.ninja_level|int )  %}
         <i data-feather="star"></i>
       {% endfor %}
