@@ -20,29 +20,19 @@
 {% block content %}
     <section id="tags">
         <h1>{{ _('Tags for') }} {{ SITENAME }}</h1>
-        <div class="panel-group" id="tags-html-listing">
+        <div class="row panel-group" id="tags-html-listing">
+	  <div class="list-group d-flex flex-row flex-wrap">
             {%- for tag, articles in tags|sort %}
-		{#
-            <div class="panel panel-default">
-                <div class="panel-heading">
-		#}
-		<details>
-                  <summary class="mt-2 mb-2"><span>{{ tag }} {{ articles|count }}</span>
+		<details class="list-group-item w-50 list-group-item-action">
+                  <summary class="mt-1 mb-1">
+			<span> {{ tag }} ({{ articles|count }}) </span>
                    </summary>
-		{#
-                <div id="collapse-{{tag.slug}}" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        {% for article in articles %}
-                        <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time></span> <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
-                        {% endfor %}
-                    </div>
-                </div>
-		#}
                         {% for article in articles %}
                         <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time></span> <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
                         {% endfor %}
                 </details>
             {% endfor %}
+          </div>
         </div>
 
     </section>
