@@ -16,8 +16,12 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Version 1.0.7
+
 - Update layout of tags.html
 - Update icons and minor layout update
+- Update docs-searchbar.js to 1.1.6
+- New options for setting meta tags for robot for some pages
 
 - Version 1.0.6
 

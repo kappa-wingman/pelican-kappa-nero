@@ -80,3 +80,12 @@ Use it at your own risk.
 	* MEILISEARCH_SERVER_URL = 'https://your meilisearch app url'
 	* MEILISEARCH_API_KEY = 'KEY', note public key is enough
 	* MEILISEARCH_INDEX_UID = 'docs', replace by your index uid
+* New option to set meta tag for robots or crawlers
+	* Typical setting may be like 'noindex,noimageindex,nosnippet,follow'
+	* METATAG_ROBOTS_AUTHOR , for author.html and authors.html
+	* METATAG_ROBOTS_TAG , for tag.html and tags.html
+	* METATAG_ROBOTS_SEARCH , for meilisearch.html and tipuesearch.html
+	* METATAG_ROBOTS_CATGORY , for individual category
+	* METATAG_ROBOTS_CATGORIES_PAGE , for categories.html only
+	* METATAG_ROBOTS_ARCHIVES_PAGE , for archives.html only
+
