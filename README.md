@@ -59,6 +59,7 @@ Use it at your own risk.
 * JSON-LD, article image and publisher logo are required by Google schema checking
 	* SITE_LOGO = 'images/your-image.jpg'
 	* PUBLISHER_LOGO = 'images/your-image.jpg'
+	* Recommended to set 'CATEGORY_URL' explictly. The include/json_ld.html refers to that variable. If it is not set, it use a default value which may not be same as your system setting
 * JSON_LD_BREADCRUMBLIST = True
 	* If both JSON_LD is also enabled:
 	* Add type BreadcrumbList for all html

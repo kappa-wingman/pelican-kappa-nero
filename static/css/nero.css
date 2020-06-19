@@ -541,34 +541,8 @@ p.card-header.collapsed {
 }
 
 /* scrollspy */
-/*::marker {
-  color: blue;
-  font-size: 1.2em;
-}
 
 /*
-#sb_Article_TOC .active {
-  font-weight: bold;
-  background: #72bcd4;
-}
-
-#sb_Article_TOC .nav {
-  display: none;
-}
-
-#sb_Article_TOC .active .nav {
-  display: block;
-}
-
-#sb_Article_TOC .nav a {
-  font-weight: normal;
-  font-size: .85em;
-}
-
-#sb_Article_TOC .nav span {
-  margin: 0 5px 0 2px;
-}
-
 #sb_Article_TOC .nav .active a,
 #sb_Article_TOC .nav .active:hover a,
 #sb_Article_TOC .nav .active:focus a {
@@ -588,6 +562,7 @@ p.card-header.collapsed {
 nav#sb_Article_TOC > .active a,
 nav#sb_Article_TOC > .active:hover a,
 nav#sb_Article_TOC > .active:focus a {
+}
 */
 
 /*
@@ -600,7 +575,7 @@ nav#sb_Article_TOC > .active:focus a {
 }
 */
 
-/* manually nadded for the plugin
+/* manually added for the plugin
 the current vesion of the ert plugin do not have this id (emtpy id) */
 #id-extract-toc {
     word-wrap: normal;
@@ -903,6 +878,12 @@ pre.code.literal-block { border: 1px solid; }
 	text-decoration: none;
 	background-color: #575b60;
 	outline: 0;
+}
+
+/* For the color shown when clicking the item in menu, dropdown item */
+#top_navbar.navbar a:focus.dropdown-item{
+    color: black !important ;
+    background-color: var(--rootScrollBarThumb) !important;
 }
 
 /* For table converted by docutils */

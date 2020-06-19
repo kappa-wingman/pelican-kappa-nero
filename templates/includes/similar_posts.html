@@ -1,7 +1,7 @@
 {% if article.similar_posts %}
 
 <section class="card card-body pb-1" id="related-posts">
-  <h4>Related articles in this site:</h4>
+  Related articles in this website
     <ul>
     {% for similar in article.similar_posts %}
         <li><a href="{{ SITEURL }}/{{ similar.url }}">{{ similar.title }}</a></li>
