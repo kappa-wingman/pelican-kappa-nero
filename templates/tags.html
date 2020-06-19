@@ -25,8 +25,8 @@
         {%- for tag, articles in tags|sort %}
 	  <li class="nav-item">
 	    <a class="nav-link {% if loop.index == 1 %}active{% endif %}"
-	      data-toggle="tab" href="#collapse-{{ tag|urlencode }}" role="tab"
-	      id="collapse-{{ tag|urlencode }}-tab" aria-controls="collapse-{{ tag|urlencode }}">
+	      data-toggle="tab" href="#collapse-{{ tag|replace(" ", "-") }}" role="tab"
+	      id="collapse-{{ tag|replace(" ", "-") }}-tab" aria-controls="collapse-{{ tag|replace(" ", "-") }}">
                 {{ tag }} ({{ articles|count }}) </a>
 	  </li>
 	{% endfor %}
@@ -35,7 +35,7 @@
         <div class="tab-content">
         {%- for tag, articles in tags|sort %}
           <div class="tab-pane container fade {% if loop.index == 1 %}show active{% endif %}"
-            id="collapse-{{ tag|urlencode }}" role="tabpanel" aria-labelledby="collapse-{{ tag|urlencode }}-tab">
+            id="collapse-{{ tag|replace(" ", "-") }}" role="tabpanel" aria-labelledby="collapse-{{ tag|replace(" ", "-") }}-tab">
             {% for article in articles %}
               <div>
                 <span class="categories-timestamp">

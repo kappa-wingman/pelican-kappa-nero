@@ -23,14 +23,14 @@
 
 {# use of category.slug in below, id, href, aria-contorls
  Assuming categories do not have spaces! If there are spaces, the generated HTML would have problem
- Make use of urlencode for this problem
+ Make use of replace(" ", "-") for this problem
 #} 
 
 	<ul class="nav nav-tabs mb-4" role="tablist">
 	  {% for category, articles in categories %}
 	      <li class="nav-item">
-		<a class="nav-link {% if loop.index == 1 %}active{% endif %}" data-toggle="tab" href="#collapse-{{ category.slug|urlencode }}" role="tab" id="collapse-{{ category.slug|urlencode }}-tab"
-		  aria-controls="collapse-{{ category.slug|urlencode }}">
+		<a class="nav-link {% if loop.index == 1 %}active{% endif %}" data-toggle="tab" href="#collapse-{{ category.slug|replace(" ", "-") }}" role="tab" id="collapse-{{ category.slug|replace(" ", "-") }}-tab"
+		  aria-controls="collapse-{{ category.slug|replace(" ", "-") }}">
 		{{ category }} ({{ articles|count }}) </a>
 	      </li>
 	  {% endfor %}
@@ -39,7 +39,7 @@
 	<div class="tab-content">
 	  {% for category, articles in categories %}
 	    <div class="tab-pane container fade {% if loop.index == 1 %}show active{% endif %}"
-		id="collapse-{{ category.slug|urlencode }}" role="tabpanel" aria-labelledby="collapse-{{ category.slug|urlencode }}-tab">
+		id="collapse-{{ category.slug|replace(" ", "-") }}" role="tabpanel" aria-labelledby="collapse-{{ category.slug|replace(" ", "-") }}-tab">
 	        {% for article in articles %}
 		  <div>
 	          <span class="categories-timestamp">
