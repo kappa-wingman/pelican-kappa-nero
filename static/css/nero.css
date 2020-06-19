@@ -7,7 +7,8 @@ html {
   --themeBGImg:		linear-gradient(#252525, #252525, #252525);
   --themeCodeBG:	#202020;
   --themeColor:		#d3d3d3;
-  --themeNavActiveBG:   #323290;
+  /*--themeNavActiveBG:   #323290;*/
+  --themeNavActiveBG:   #404080;
   --rootScrollBarThumb: rgb(180,180,180);
   --rootScrollBarColor: rgb(54,60,64);
   --leftScrollBarThumb: #929292;
@@ -1092,3 +1093,13 @@ div#id-extract-toc.toc ul.simple.list-group {
   border-radius: 0.2rem;
 }
 
+/* For categories.html and tags.html */
+.nav-tabs .nav-link.active {
+  background-color: var(--themeNavActiveBG);
+  color: var(--themeColor);
+}
+
+.nav-tabs .nav-item {
+  /*border-radius: 0.2rem;*/
+  margin-bottom: 0;
+}

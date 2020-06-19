@@ -21,10 +21,16 @@
     <section id="categories">
       <h1>{{ _('All Categories for')  }} {{ SITENAME }}</h1>
 
+{# use of category.slug in below, id, href, aria-contorls
+ Assuming categories do not have spaces! If there are spaces, the generated HTML would have problem
+ Make use of urlencode for this problem
+#} 
+
 	<ul class="nav nav-tabs mb-4" role="tablist">
 	  {% for category, articles in categories %}
 	      <li class="nav-item">
-		<a class="nav-link {% if loop.index == 1 %}active{% endif %}" data-toggle="tab" href="#collapse-{{ category.slug }}" role="tab" id="collapse-{{category.slug}}-tab" aria-controls="collapse-{{category.slug}}">
+		<a class="nav-link {% if loop.index == 1 %}active{% endif %}" data-toggle="tab" href="#collapse-{{ category.slug|urlencode }}" role="tab" id="collapse-{{ category.slug|urlencode }}-tab"
+		  aria-controls="collapse-{{ category.slug|urlencode }}">
 		{{ category }} ({{ articles|count }}) </a>
 	      </li>
 	  {% endfor %}
@@ -33,7 +39,7 @@
 	<div class="tab-content">
 	  {% for category, articles in categories %}
 	    <div class="tab-pane container fade {% if loop.index == 1 %}show active{% endif %}"
-		id="collapse-{{ category.slug }}" role="tabpanel" aria-labelledby="collapse-{{category.slug}}-tab">
+		id="collapse-{{ category.slug|urlencode }}" role="tabpanel" aria-labelledby="collapse-{{ category.slug|urlencode }}-tab">
 	        {% for article in articles %}
 		  <div>
 	          <span class="categories-timestamp">
@@ -46,25 +52,5 @@
 	  {% endfor %}
 	</div>
 
-{#
-        <div class="panel-group" id="accordion">
-            {% for category, articles in categories %}
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title w-50">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-{{category.slug}}">{{ category }} <span class="badge pull-right">({{ articles|count }})</span></a>
-                    </h4>
-                </div>
-                <div id="collapse-{{category.slug}}" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        {% for article in articles %}
-                        <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time></span> <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-#}
     </section>
 {% endblock %}

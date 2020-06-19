@@ -20,19 +20,32 @@
 {% block content %}
     <section id="tags">
         <h1>{{ _('Tags for') }} {{ SITENAME }}</h1>
-        <div class="row panel-group" id="tags-html-listing">
-	  <div class="list-group d-flex flex-row flex-wrap">
-            {%- for tag, articles in tags|sort %}
-		<details class="list-group-item w-50 list-group-item-action">
-                  <summary class="mt-1 mb-1">
-			<span> {{ tag }} ({{ articles|count }}) </span>
-                   </summary>
-                        {% for article in articles %}
-                        <p><span class="categories-timestamp"><time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time></span> <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></p>
-                        {% endfor %}
-                </details>
+
+        <ul class="nav nav-tabs mb-4" role="tablist">
+        {%- for tag, articles in tags|sort %}
+	  <li class="nav-item">
+	    <a class="nav-link {% if loop.index == 1 %}active{% endif %}"
+	      data-toggle="tab" href="#collapse-{{ tag|urlencode }}" role="tab"
+	      id="collapse-{{ tag|urlencode }}-tab" aria-controls="collapse-{{ tag|urlencode }}">
+                {{ tag }} ({{ articles|count }}) </a>
+	  </li>
+	{% endfor %}
+	</ul>
+
+        <div class="tab-content">
+        {%- for tag, articles in tags|sort %}
+          <div class="tab-pane container fade {% if loop.index == 1 %}show active{% endif %}"
+            id="collapse-{{ tag|urlencode }}" role="tabpanel" aria-labelledby="collapse-{{ tag|urlencode }}-tab">
+            {% for article in articles %}
+              <div>
+                <span class="categories-timestamp">
+                <time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time>
+                </span>
+                <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+              </div>
             {% endfor %}
           </div>
+        {% endfor %}
         </div>
 
     </section>
