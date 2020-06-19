@@ -16,6 +16,9 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Update layout 
+- JSON-LD: update on category url
+
 - Version 1.0.7
 
 - Update layout of tags.html
