@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
+{% block meta %}
+  {% if METATAG_ROBOTS_ARCHIVES_PAGE %}
+    <meta name="robots" content="{{ METATAG_ROBOTS_ARCHIVES_PAGE }}">
+  {% endif %}
+{% endblock %}
+
 {% block title %}{{ _('Archives') }} - {{ SITENAME }}{% endblock %}
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}

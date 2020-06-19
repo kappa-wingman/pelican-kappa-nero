@@ -4,8 +4,8 @@
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ tag }}" />
 
-{% if NOINDEX_TAG %}
-    <meta name="robots" content="noindex">
+{% if METATAG_ROBOTS_TAG %}
+    <meta name="robots" content="{{ METATAG_ROBOTS_TAG }}">
 {% endif %}
 
 {% endblock %}

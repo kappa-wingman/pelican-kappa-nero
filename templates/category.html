@@ -3,8 +3,8 @@
 {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ category }}" />
-  {% if NOINDEX_CATEGORY %}
-    <meta name="robots" content="noindex">
+  {% if METATAG_ROBOTS_CATGORY %}
+    <meta name="robots" content="{{ METATAG_ROBOTS_CATGORY }}">
   {% endif %}
 {% endblock %}
 {% block breadcrumbs %}

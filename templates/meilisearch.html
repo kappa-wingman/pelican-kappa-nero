@@ -2,8 +2,8 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-  {% if NOINDEX_SEARCH %}
-    <meta name="robots" content="noindex">
+  {% if METATAG_ROBOTS_SEARCH %}
+    <meta name="robots" content="{{ METATAG_ROBOTS_SEARCH }}">
   {% endif %}
 {% endblock %}
 
