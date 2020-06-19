@@ -20,6 +20,31 @@
 {% block content %}
     <section id="categories">
       <h1>{{ _('All Categories for')  }} {{ SITENAME }}</h1>
+
+	<ul class="nav nav-tabs" role="tablist">
+	  {% for category, articles in categories %}
+	      <li class="nav-item">
+		<a class="nav-link {% if loop.index == 1 %}active{% endif %}" data-toggle="tab" href="#collapse-{{ category.slug }}" role="tab" id="collapse-{{category.slug}}-tab" aria-controls="collapse-{{category.slug}}">
+		{{ category }} ({{ articles|count }}) </a>
+	      </li>
+	  {% endfor %}
+	</ul>
+
+	    <div class="tab-content">
+	    {% for category, articles in categories %}
+	      <div class="tab-pane container fade {% if loop.index == 1 %}show active{% endif %}"
+		id="collapse-{{ category.slug }}" role="tabpanel" aria-labelledby="collapse-{{category.slug}}-tab">
+	        {% for article in articles %}
+	          <span class="categories-timestamp">
+		    <time datetime="{{ article.date.isoformat() }}">{{ article.date|strftime("%Y-%m-%d") }}</time>
+	          </span>
+	          <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+                {% endfor %}
+	      </div>
+	    {% endfor %}
+	    </div>
+
+{#
         <div class="panel-group" id="accordion">
             {% for category, articles in categories %}
             <div class="panel panel-default">
@@ -38,6 +63,6 @@
             </div>
             {% endfor %}
         </div>
-
+#}
     </section>
 {% endblock %}
