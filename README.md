@@ -52,10 +52,10 @@ Use it at your own risk.
 	* JSON_LD = True
 	* Based on existing work from [Flex](https://github.com/alexandrevicenzi/Flex). Thanks to Alexandre
 	* Based on existing work from [Emoji-gen](https://github.com/emoji-gen/blog/blob/master/theme/templates/includes/article_structured-data.html). Thanks to Emoj-Gen and Pine.
-	* For base / includes/json_ld.html;
-	* If enabled, there would be JSON-LD blocks for
-	* Type Blog for all html
-	* Type Articles for all articles
+	* For base / includes/json_ld.html, If enabled, there would be JSON-LD blocks for
+	* Type Website and WebPage for all html
+	* Type BlogPosting for all articles
+	* A limitation of Pelican: currently there is no easy way to get the current URL of the page. So some pages generated for tags and etc could not put the current URL into the JSON-LD. If Pelican provides a Jinja2 variable for this, we would try to update the JSON-LD template.
 * JSON-LD, article image and publisher logo are required by Google schema checking
 	* SITE_LOGO = 'images/your-image.jpg'
 	* PUBLISHER_LOGO = 'images/your-image.jpg'
