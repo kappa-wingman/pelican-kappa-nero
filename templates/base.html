@@ -363,13 +363,24 @@
 		    <a class="nav-item nav-link dropdown-toggle" id="navbarDropDownMenu1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#navbar-Catrgories">Categories</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropDownMenu1">
 		        {% if DISPLAY_CATEGORIES_ON_MENU %}
-			        <a {% if output_file == CATEGORIES_URL %}
-				    class="dropdown-item active"
-				  {% else %}
-				    class="dropdown-item"
-				  {% endif %}
-                                  href="{{ SITEURL }}/{{ CATEGORIES_URL }}">All categories
-                                </a>
+				{# output_file only works if CATEGORIES_URL is defined as 'category.html' #}
+			    <a id="navbar-AllCategories-dropdown-item" {% if output_file == CATEGORIES_URL %}
+				class="dropdown-item active"
+			    {% else %}
+				class="dropdown-item"
+			    {% endif %}
+				href="{{ SITEURL }}/{{ CATEGORIES_URL }}">All categories
+			    </a>
+
+			{# Workaround for other cases #}
+			{% if CATEGORIES_URL %}
+			<script>
+       			   if ( window.location.pathname == '/{{ CATEGORIES_URL }}' ) {
+		             $("#navbar-AllCategories-dropdown-item").addClass("active");
+		           }
+			</script>
+		        {% endif %}
+
 			    {% for cat, null in categories %}
 				<a {% if cat == category %}class="dropdown-item active"
 			 	    {% else %}
