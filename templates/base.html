@@ -548,7 +548,12 @@
   feather.replace()
 </script>
 
-<noscript>Your browser does not support JavaScript.</noscript>
+<noscript>
+  {#Your browser does not support JavaScript.#}
+  <dialog open id="noScriptDialog">
+      <p>Your browser does not support JavaScript.<p>
+  </dialog>
+</noscript>
 
 </body>
 </html>
