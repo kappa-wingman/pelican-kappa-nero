@@ -11,7 +11,7 @@
   "@graph": [
   {
     "@type": "WebSite",
-    "@id": "{{ SITEURL }}",
+    "@id": "{{ SITEURL }}/#website",
     "url": "{{ SITEURL }}",
     "name": "{{ SITENAME }}",
     "description": "{{ SITE_DESCRIPTION }}",
@@ -46,22 +46,28 @@
     {% endif %}
     {% if article %}
       "url": "{{ SITEURL }}/{{ article.url }}",
+      "@id": "{{ SITEURL }}/{{ article.url }}/#webpage",
     {% elif page %}
       "url": "{{ SITEURL }}/{{ page.url }}",
+      "@id": "{{ SITEURL }}/{{ page.url }}/#webpage",
+    {% elif category %}
+      "url": "{{ SITEURL }}/{{ category.url }}",
+      "@id": "{{ SITEURL }}/{{ category.url }}/#webpage",
     {% else %}
       "url": "{{ SITEURL }}",
+      "@id": "{{ SITEURL }}/#webpage",
     {% endif %}
     "isPartOf": {
-      "@id": "{{ SITEURL }}"
+      "@id": "{{ SITEURL }}/#website"
     }
   }
   {% if article %}
   ,{
     "@context": "http://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{{ SITEURL }}/{{ article.url }}"
+    "@type": "Article",
+    "mainEntityOfPage": "{{ SITEURL }}/article.url }}",
+    "isPartOf": {
+      "@id": "{{ SITEURL }}/#website"
     },
     "name": "{{ article.title|striptags|escape }}",
     "headline": "{{ article.title|striptags|escape }}",
@@ -75,6 +81,7 @@
       "@id": "{{ SITEURL }}/{{ article.author.url }}"
     },
     "url": "{{ SITEURL }}/{{ article.url }}",
+    "@id": "{{ SITEURL }}/{{ article.url }}/#blogposting",
     {% if article.tags %}
     "keywords": "{{ article.tags|join(',') }}",
     {% endif %}
