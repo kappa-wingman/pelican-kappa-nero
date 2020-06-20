@@ -18,6 +18,7 @@ Changes, newer changes on top
 
 - Update layout 
 - JSON-LD: update on category url
+- Fixed archives button/icon in navbar
 
 - Version 1.0.7
 
