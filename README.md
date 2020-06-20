@@ -20,7 +20,8 @@ Use it at your own risk.
 	* DISABLE_SIDEBAR_TITLE_ICONS would not work because of code changes
 	* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
 	* DISPLAY_BREADCRUMBS is not working. Related code was not migrated to Bootstrap 4
-	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some icons are not updated to use the new icons.
+	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some codes that use the old icons are not updated to use the new icons.
+	* Limitation: The categories URL (controlled by CATEGORIES_SAVE_AS, a Pelican parameter) could be 'categories.html or /categories/index.html'. One part of the theme relies on CATEGORIES_URL to be categories.html to work (highlight them item in the navigation bar if the current page is categories.html. It is because there is no easy way to know the URL of current page in Pelican.
 
 * Options that must be set in pelicanconf.py:
 	* PLUGINS = \['i18n_subsites'\] (required since pelican-bootstrap3)
