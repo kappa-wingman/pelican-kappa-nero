@@ -20,7 +20,7 @@ Changes, newer changes on top
 - JSON-LD: update on category url
 - Fixed archives button/icon in navbar
 - Added rel = prev/next for pagination links
-- Added rel "canonical" for catgeory.html template
+- Add canonical url to most of the templates
 
 - Version 1.0.7
 
