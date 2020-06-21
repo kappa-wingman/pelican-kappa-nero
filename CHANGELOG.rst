@@ -16,18 +16,21 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
-- Update layout 
-- JSON-LD: update on category url
-- Fixed archives button/icon in navbar
-- Added rel = prev/next for pagination links
-- Add canonical url to most of the templates
+- Version 1.0.8
+
+  - Update layout 
+  - JSON-LD: update on category url
+  - Fixed archives button/icon in navbar
+  - Added rel = prev/next for pagination links
+  - Add canonical url to most of the templates
+  - Add the current URL to most of the WebPage schema in JSON-LD
 
 - Version 1.0.7
 
-- Update layout of tags.html
-- Update icons and minor layout update
-- Update docs-searchbar.js to 1.1.6
-- New options for setting meta tags for robot for some pages
+  - Update layout of tags.html
+  - Update icons and minor layout update
+  - Update docs-searchbar.js to 1.1.6
+  - New options for setting meta tags for robot for some pages
 
 - Version 1.0.6
 
