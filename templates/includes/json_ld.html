@@ -73,7 +73,7 @@
   ,{
     "@context": "http://schema.org",
     "@type": "Article",
-    "mainEntityOfPage": "{{ SITEURL }}/article.url }}",
+    "mainEntityOfPage": "{{ SITEURL }}/{{ article.url }}",
     "isPartOf": {
       "@id": "{{ SITEURL }}/#website"
     },
@@ -121,10 +121,11 @@
   }
   {% endif %}
   {% if "{{ JSON_LD_BREADCRUMBLIST }}" %}
-  ,{
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+    {% if category %}
+    ,{
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
       {
 	"@type": "ListItem",
 	"position": 1,
@@ -133,16 +134,14 @@
 	  "name": "{{ SITENAME }}"
 	}
       }
-      {% if category %}
-      ,{
+    ,{
 	"@type": "ListItem",
 	"position": 2,
 	"item": {
 	  "@id": "{{ SITEURL }}/{{ LOCAL_JSON_LD_CATEGORY_URL }}",
 	  "name": "{{ category }}"
 	}
-      }
-      {% endif %}
+    }
       {% if article %}
       ,{
 	"@type": "ListItem",
@@ -153,8 +152,9 @@
 	}
       }
       {% endif %}
-    ]
-  }
+      ]
+    }
+    {% endif %}
   {% endif %}
   ]
 }
