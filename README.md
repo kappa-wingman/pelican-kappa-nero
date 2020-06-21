@@ -21,7 +21,13 @@ Use it at your own risk.
 	* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
 	* DISPLAY_BREADCRUMBS is not working. Related code was not migrated to Bootstrap 4
 	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some codes that use the old icons are not updated to use the new icons.
-	* Limitation: The categories URL (controlled by CATEGORIES_SAVE_AS, a Pelican parameter) could be 'categories.html or /categories/index.html'. One part of the theme relies on CATEGORIES_URL to be categories.html to work (highlight them item in the navigation bar if the current page is categories.html. It is because there is no easy way to know the URL of current page in Pelican. This limitation also effect the problem of adding current URL to the canonical link tag and adding to metadata in JSON-LD for some html files.
+
+* Limitation
+	* The categories URL (controlled by CATEGORIES_SAVE_AS, a Pelican parameter) could be 'categories.html or /categories/index.html'. One part of the theme relies on CATEGORIES_URL to be categories.html to work (highlight them item in the navigation bar if the current page is categories.html. It is because there is no easy way to know the URL of current page in Pelican. This limitation is lifted by using jQuery to check current URL to set the correct highlight item.
+	* This limitation of no easy way getting current URL in Pelican also effects the problem of adding current URL to the canonical link tag and adding to metadata in JSON-LD for some html files.
+
+* Other points to note
+	* rel=prev/next implementation. Looks like the official method for Google Search engine is to add it in the head section. But could be a problem for Pelican to get the URL of previous/next page. The current rel=prev/next is added inside the hyperlink tag '<a\>' during pagination link generation. It is done according to the [HTML specification](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element).
 
 * Options that must be set in pelicanconf.py:
 	* PLUGINS = \['i18n_subsites'\] (required since pelican-bootstrap3)
