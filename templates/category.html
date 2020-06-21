@@ -7,6 +7,11 @@
     <meta name="robots" content="{{ METATAG_ROBOTS_CATGORY }}">
   {% endif %}
 {% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ category.url }}">
+{% endblock %}
+
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
