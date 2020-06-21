@@ -6,6 +6,12 @@
   {% endif %}
 {% endblock %}
 
+{% block canonical_rel %}
+  {% if TAGS_URL %}
+    <link rel="canonical" href="{{ SITEURL }}/{{ TAGS_URL }}">
+  {% endif %}
+{% endblock %}
+
 {% block title %}Tags - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}

@@ -9,6 +9,24 @@
 {% endif %}
 
 {% endblock %}
+
+{% block canonical_rel %}
+  {% if TAG_URL %}
+
+{%- if output_file == 'index.html' %}
+  {# this case should not happen #}
+  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
+{%- elif output_file.endswith("index.html") %}
+  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
+{%- else %}
+  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
+{%- endif %}
+
+    {#<link rel="canonical" href="{{ SITEURL }}/{{ TAG_URL.format(slug=tag).replace(' ', '-') }}"> #}
+    <link rel="canonical" href="{{ CANONICAL_HREF }}">
+  {% endif %}
+{% endblock %}
+
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
     <ol class="breadcrumb">
