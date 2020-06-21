@@ -19,6 +19,8 @@ Changes, newer changes on top
 - Update layout 
 - JSON-LD: update on category url
 - Fixed archives button/icon in navbar
+- Added rel = prev/next for pagination links
+- Added rel "canonical" for catgeory.html template
 
 - Version 1.0.7
 

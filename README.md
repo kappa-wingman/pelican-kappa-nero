@@ -21,7 +21,7 @@ Use it at your own risk.
 	* This theme uses Bootstrap 4. But the codes was copied from old theme, which uses Bootstrap 3. So some parts of the theme may not work
 	* DISPLAY_BREADCRUMBS is not working. Related code was not migrated to Bootstrap 4
 	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some codes that use the old icons are not updated to use the new icons.
-	* Limitation: The categories URL (controlled by CATEGORIES_SAVE_AS, a Pelican parameter) could be 'categories.html or /categories/index.html'. One part of the theme relies on CATEGORIES_URL to be categories.html to work (highlight them item in the navigation bar if the current page is categories.html. It is because there is no easy way to know the URL of current page in Pelican.
+	* Limitation: The categories URL (controlled by CATEGORIES_SAVE_AS, a Pelican parameter) could be 'categories.html or /categories/index.html'. One part of the theme relies on CATEGORIES_URL to be categories.html to work (highlight them item in the navigation bar if the current page is categories.html. It is because there is no easy way to know the URL of current page in Pelican. This limitation also effect the problem of adding current URL to the canonical meta tag and adding to metadata in JSON-LD for some html files.
 
 * Options that must be set in pelicanconf.py:
 	* PLUGINS = \['i18n_subsites'\] (required since pelican-bootstrap3)
