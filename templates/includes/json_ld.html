@@ -1,3 +1,11 @@
+{%- if output_file == 'index.html' %}
+  {%- set LOCAL_JSOND_LD_CURRENT_URL = SITEURL ~ "/" %}
+{%- elif output_file.endswith("index.html") %}
+  {%- set LOCAL_JSOND_LD_CURRENT_URL = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
+{%- else %}
+  {%- set LOCAL_JSOND_LD_CURRENT_URL = SITEURL ~ "/" ~ output_file %}
+{%- endif %}
+
 {%- if category %}
   {%- if CATEGORY_URL %}
     {%- set LOCAL_JSON_LD_CATEGORY_URL = CATEGORY_URL.format(slug=category) %}
@@ -54,8 +62,8 @@
       "url": "{{ SITEURL }}/{{ category.url }}",
       "@id": "{{ SITEURL }}/{{ category.url }}/#webpage",
     {% else %}
-      "url": "{{ SITEURL }}",
-      "@id": "{{ SITEURL }}/#webpage",
+      "url": "{{ LOCAL_JSOND_LD_CURRENT_URL }}",
+      "@id": "{{ LOCAL_JSOND_LD_CURRENT_URL }}/#webpage",
     {% endif %}
     "isPartOf": {
       "@id": "{{ SITEURL }}/#website"
