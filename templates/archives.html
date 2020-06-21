@@ -6,11 +6,13 @@
   {% endif %}
 {% endblock %}
 
+{#
 {% block canonical_rel %}
   {% if ARCHIVES_URL %}
     <link rel="canonical" href="{{ SITEURL }}/{{ ARCHIVES_URL }}">
   {% endif %}
 {% endblock %}
+#}
 
 {% block title %}{{ _('Archives') }} - {{ SITENAME }}{% endblock %}
 {% block breadcrumbs %}

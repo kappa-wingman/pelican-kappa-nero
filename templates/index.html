@@ -1,5 +1,6 @@
 {% extends "article_list.html" %}
 
+{#
 {% block canonical_rel %}
 
 {%- if output_file == 'index.html' %}
@@ -9,10 +10,13 @@
 {%- else %}
   {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
 {%- endif %}
+#}
 
 {# <link rel="canonical" href="{{ SITEURL }}"> #}
+{#
 <link rel="canonical" href="{{ CANONICAL_HREF }}">
 {% endblock %}
+#}
 
 {% block banner %}
 	{% include 'includes/banner.html' %}

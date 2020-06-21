@@ -6,11 +6,13 @@
   {% endif %}
 {% endblock %}
 
+{#
 {% block canonical_rel %}
   {% if CATEGORIES_URL %}
     <link rel="canonical" href="{{ SITEURL }}/{{ CATEGORIES_URL }}">
   {% endif %}
 {% endblock %}
+#}
 
 {% block title %}{{ _('Categories') }} - {{ SITENAME }}{% endblock %}
 

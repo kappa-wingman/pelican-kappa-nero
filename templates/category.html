@@ -8,19 +8,24 @@
   {% endif %}
 {% endblock %}
 
+{# This template may have pagination #}
+
+{#
 {% block canonical_rel %}
 {%- if output_file == 'index.html' %}
-  {# this case should not happen #}
   {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
 {%- elif output_file.endswith("index.html") %}
   {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
 {%- else %}
   {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
 {%- endif %}
+#}
 
 {#<link rel="canonical" href="{{ SITEURL }}/{{ category.url }}">#}
+{#
 <link rel="canonical" href="{{ CANONICAL_HREF }}">
 {% endblock %}
+#}
 
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}
