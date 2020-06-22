@@ -8,13 +8,22 @@ I could not update the related changes that should be made for translation (fore
 Use it at your own risk.
 
 - For this theme:
- 
+
   - The changes and parameters are incompatible with
     the original pelican-bootstrap3 and pelican-bootstrap3-nero or pelican-bootstrap4-nero
   - The theme is customized to my preference
 
 Changes, newer changes on top
 -----------------------------
+
+- Version 1.0.9
+
+  - Update the screenshot
+  - Only create breadcrumblist for category and article
+  - Adding the canonical URL to base.html, so that it should 
+    generate the URL for every page.
+    Previously added the code to individual pages, now commented.
+    Those commented codes may be removed after more testing.
 
 - Version 1.0.8
 
