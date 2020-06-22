@@ -5,7 +5,7 @@
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
 <head>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-    <!-- Using the latest rendering mode for IE -->
+    {#<!-- Using the latest rendering mode for IE -->#}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +47,7 @@
 	{% endif %}
     {% endblock %}
 
-    <!-- For JSON+LD included in base.html -->
+    {#<!-- For JSON+LD included in base.html -->#}
     {% if JSON_LD %}
       {% include 'includes/json_ld.html' %}
     {% endif %}
@@ -55,7 +55,7 @@
     {# Open Graph tags #}
     {% if USE_OPEN_GRAPH %}
     {% block opengraph %}
-    <!-- Open Graph tags -->
+    {#<!-- Open Graph tags -->#}
         {% if OPEN_GRAPH_FB_APP_ID %}
             <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
         {% endif %}
@@ -79,7 +79,7 @@
         <meta name="flattr:id" content="{{ FLATTR_ID }}">
     {% endif %}
 
-    <!-- Bootstrap -->
+    {# Bootstrap #}
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
     {% else %}
@@ -113,6 +113,7 @@
     {% if SPHINX_COPYBUTTON %}
     <!-- copy button -->
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/copybutton.css" type="text/css"/>
+
     {% endif %}
     {% if SHARIFF %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shariff/shariff.min.css" rel="stylesheet">
@@ -150,13 +151,15 @@
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {%- endif %}
 
+{# link+intergrity need rel=stylesheet #}
+{#
 <!-- Fonts -->
 <!-- needs future/better browser support
 <link rel="preload"
       as="style"
-	{# link+intergrity need rel=stylesheet #}
       href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css">
 -->
+#}
 <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@ibm/plex@4.0.2/css/ibm-plex.min.css" integrity="sha256-C67K138e/S3hB+dnmeShAIyK2w9c8WkxhE7r6a7PJjY=" crossorigin="anonymous">
 <noscript>
@@ -178,23 +181,27 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    {# Include all compiled plugins (below), or include individual files as needed #}
     {# <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script> #}
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+	{#
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js" integrity="sha256-ngFW3UnAN0Tnm76mDuu7uUtYEcG3G5H1+zioJw3t+68=" crossorigin="anonymous"></script>
+	#}
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha256-XfzdiC+S1keia+s9l07y7ye5a874sBq67zK4u7LTjvk=" crossorigin="anonymous"></script>
 
-    <!-- For Cookie Consent 2-->
+    {#<!-- For Cookie Consent 2-->#}
     {% include 'includes/cookie_consent2.html' %}
 
     {% if SPHINX_COPYBUTTON %}
-      <!-- clipboard.js and copy button -->
+      {#<!-- clipboard.js and copy button -->#}
       <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/copybutton.js"></script>
-      <!-- https://github.com/zenorocha/clipboard.js -->
+      {#<!-- https://github.com/zenorocha/clipboard.js -->#}
       <script async src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha384-x6nRSkfSsKGBsvlLFHHNju+buS3zYUztVnTRz/0JKgOIk3ulS6bNce/vHOvYE2eY" crossorigin="anonymous"></script>
     {% endif %}
 
-      <!-- Meilisearch -->
+      {#<!-- Meilisearch -->#}
     {% if MEILISEARCH %}
       <script src="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.6/dist/cdn/docs-searchbar.min.js" integrity="sha256-tw90Zx7YaMDenjRrdHLmI9HbaYifF8WCTcNQCD5lrCs=" crossorigin="anonymous"></script>
     {% endif %}
@@ -340,7 +347,7 @@
 
 </head>
 
-<!-- For scroll spy -->
+{#<!-- For scroll spy -->#}
 {% if article and article.toc %}
   <body data-spy="scroll" data-target="#sb_Article_TOC" data-offset="61">
 {% else %}
@@ -461,7 +468,7 @@
         </div>
         <!-- /.navbar-collapse -->
     </div> <!-- navbar container -->
-</header> <!-- header -->
+</header>
 
 {#
 <!-- some space after the top banner -->
@@ -544,8 +551,10 @@
 
 {#{% include 'includes/footer.html' %}#}
 
+{#
 <!-- Loading of jQuery and Bootstrap moved to head -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
+#}
 
 {% if CUSTOM_JS %}
     <script src="{{ SITEURL }}/{{ CUSTOM_JS }}"></script>

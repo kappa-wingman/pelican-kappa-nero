@@ -15,7 +15,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="column wrapper flex-lg-nowrap">
 {% if MEILISEARCH %}
@@ -24,7 +23,6 @@
   <input type="search" id="search-bar-input" placeholder="Search with Meilisearch" />
         {# could be a problem calling docSerchBar (not exists) if the js is loaded with async #}
     <script>
-    $(document).ready(function () {
       docsSearchBar({
         hostUrl: "{{ MEILISEARCH_SERVER_URL }}",
         apiKey: "{{ MEILISEARCH_API_KEY }}",
@@ -32,10 +30,9 @@
         inputSelector: "#search-bar-input",
         debug: true // Set debug to true if you want to inspect the dropdown
       });
-    });
     </script>
   </div>
 {% endif %}
-  </div>
+    </div>
 </div>
 {% endblock %}

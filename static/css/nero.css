@@ -394,17 +394,6 @@ p.card-header.collapsed {
 
 /*  border-bottom: 1px solid rgba(0, 0, 0, .1); */
 
- /* SASS syntax, not CSS */
-  /*
-  @include media-breakpoint-up(md) {
-        display: none;
-      position: sticky;
-      top: 4rem;
-      z-index: 1000;
-      height: subtract(100vh, 4rem);
-      border-right: 1px solid rgba(0, 0, 0, .1);
-  }
-  */
 }
 
 #sb_doc_nav.hidden {
@@ -539,41 +528,6 @@ p.card-header.collapsed {
   margin-left: 1.5vw;
   margin-right: 1.5vw;
 }
-
-/* scrollspy */
-
-/*
-#sb_Article_TOC .nav .active a,
-#sb_Article_TOC .nav .active:hover a,
-#sb_Article_TOC .nav .active:focus a {
-  font-weight: bold;
-  padding-left: 30px;
-  border-left: 5px solid black;
-}
-
-#sb_Article_TOC .nav .active span,
-#sb_Article_TOC .nav .active:hover span,
-#sb_Article_TOC .nav .active:focus span {
-  display: none;
-}
-*/
-
-/*
-nav#sb_Article_TOC > .active a,
-nav#sb_Article_TOC > .active:hover a,
-nav#sb_Article_TOC > .active:focus a {
-}
-*/
-
-/*
-#toc > .active a,
-#toc > .active:hover a,
-#toc > .active:focus a {
-  font-weight: bold;
-  padding-left: 30px;
-  border-left: 5px solid black;
-}
-*/
 
 /* manually added for the plugin
 the current vesion of the ert plugin do not have this id (emtpy id) */
