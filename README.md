@@ -23,7 +23,7 @@ Use it at your own risk.
 	* Changed from Font Awesome to Feather Icons. Some icons like Reddit are misssing. Some codes that use the old icons are not updated to use the new icons.
 
 * Limitation
-	* To be added.
+	* For the tags, I had replaced a tag with spaces by dashes for the filename when generating the html. It may cause problem if you have a same tag with dash. Like 'flash storage' and 'flash-storage'.
 
 * Other points to note
 	* rel=prev/next implementation. Looks like the official method for Google Search engine is to add it in the head section. But could be a problem for Pelican to get the URL of previous/next page. The current rel=prev/next is added inside the hyperlink tag '<a\>' during pagination link generation. It is done according to the [HTML specification](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element).
