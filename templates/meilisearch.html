@@ -1,7 +1,11 @@
 {% set HIDE_SIDEBAR='true' %}
 {% extends 'base.html' %}
 
-{% block meta %}
+{% block metatag_description %}
+  <meta name="description" content="MeiliSearch for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
+{% block metatag_robots %}
   {% if METATAG_ROBOTS_SEARCH %}
     <meta name="robots" content="{{ METATAG_ROBOTS_SEARCH }}">
   {% endif %}

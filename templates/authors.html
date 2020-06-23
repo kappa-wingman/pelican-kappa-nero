@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
-{% block meta %}
+{% block metatag_description %}
+  <meta name="description" content="Authors list for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
+{% block metatag_robots %}
   {% if METATAG_ROBOTS_AUTHOR %}
-   <meta name="robots" content="{{ METATAG_ROBOTS_AUTHOR }}">
+    <meta name="robots" content="{{ METATAG_ROBOTS_AUTHOR }}">
   {% endif %}
 {% endblock %}
 

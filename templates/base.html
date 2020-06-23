@@ -40,11 +40,12 @@
 
     {% block meta %}
         <meta name="author" content="{{ AUTHOR }}" />
-  	{% if not article and not page %}
-	    {% if OTHER_PAGE_METATAG_DESCRIPTION %}
+	{% block metatag_robots %} {% endblock %}
+	{% block metatag_description %}
+	  {% if OTHER_PAGE_METATAG_DESCRIPTION %}
 	    <meta name="description" content="{{ SITE_DESCRIPTION }}"/> 
-	    {% endif %}
-	{% endif %}
+	  {% endif %}
+	{% endblock %}
     {% endblock %}
 
     {#<!-- For JSON+LD included in base.html -->#}

@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
-{% block meta %}
+{% block metatag_description %}
+  <meta name="description" content="All archives for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
+{% block metatag_robots %}
   {% if METATAG_ROBOTS_ARCHIVES_PAGE %}
     <meta name="robots" content="{{ METATAG_ROBOTS_ARCHIVES_PAGE }}">
   {% endif %}

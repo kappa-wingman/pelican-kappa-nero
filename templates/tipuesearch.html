@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
-{% block meta %}
+{% block metatag_description %}
+  <meta name="description" content="Tipue Search for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
+{% block metatag_robots %}
   {% if METATAG_ROBOTS_SEARCH %}
     <meta name="robots" content="{{ METATAG_ROBOTS_SEARCH }}">
   {% endif %}

@@ -3,6 +3,7 @@
 {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ category }}" />
+    <meta name="description" content="Articles with {{ category }} category for {{ SITE_DESCRIPTION }}"/>
   {% if METATAG_ROBOTS_CATGORY %}
     <meta name="robots" content="{{ METATAG_ROBOTS_CATGORY }}">
   {% endif %}

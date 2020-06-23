@@ -1,8 +1,10 @@
 {% extends "article_list.html" %}
 {% block title %}Tag - {{ tag }} - {{ SITENAME }}{% endblock %}
+
 {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ tag }}" />
+    <meta name="description" content="Articles with tag {{ tag }} for {{ SITE_DESCRIPTION }}"/>
 
 {% if METATAG_ROBOTS_TAG %}
     <meta name="robots" content="{{ METATAG_ROBOTS_TAG }}">
