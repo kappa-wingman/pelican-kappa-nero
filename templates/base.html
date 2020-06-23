@@ -112,7 +112,7 @@
     {# CSS specifc for this theme #}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/nero.css" type="text/css"/>
     {% if SPHINX_COPYBUTTON %}
-    <!-- copy button -->
+    <!-- sphinx copy button -->
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/copybutton.css" type="text/css"/>
 
     {% endif %}
@@ -366,7 +366,6 @@
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-ex1-collapse" aria-label="Toggle-navigation">
             {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
 		<span>
-		  {#<!-- <i class="fa fa-bars"></i> -->#}
 		  <i data-feather="menu"></i>
 		</span>
             </button>
@@ -455,19 +454,12 @@
 
             </ul> <!-- <ul class="nav navbar-nav"> -->
             <ul class="nav navbar-nav ml-auto">
-            {#{% if 'tipue_search' in PLUGINS %}
-              <li class="nav-item">
-                <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" aria-label="tipue_Search" required>
-                </form>
-              </li>
-            {% endif %}#}
             {% if ARCHIVES_SAVE_AS %}
               <li class="nav-item"><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i data-feather="archive"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
             {% endif %}
             </ul>
         </div>
-        <!-- /.navbar-collapse -->
+        <!-- navbar-collapse navbar-ex1-collapse" -->
     </div> <!-- navbar container -->
 </header>
 
@@ -526,7 +518,7 @@
 		<script type="text/javascript">
 		  document.getElementById("sb_doc_nav").style.visibility = "hidden";
 		</script>
-        {% endif %} <!-- if not article -->
+        {% endif %} {# <!-- if not article or not article.toc --> #}
         <div class="{{ content_class }}" id="main_content">
             {% block breadcrumbs %}{% endblock %}
             {% block content %}{% endblock %}
@@ -546,8 +538,8 @@
             </aside>
         </div>
         {% endif %}
-    </div> <!-- wrapper -->
-</div> <!-- container -->
+    </div> {#<!-- wrapper -->#}
+</div> {#<!-- container -->#}
 <!-- End Content Container -->
 
 {#{% include 'includes/footer.html' %}#}
