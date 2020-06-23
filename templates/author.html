@@ -10,6 +10,10 @@
   {% endif %}
 {% endblock %}
 
+{% block og_description %}
+<meta property="og:description" content="Author for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
 {% block title %}{{ _('Articles by') }} {{ author }} - {{ SITENAME }}{% endblock %}
 
 {% block breadcrumbs %}

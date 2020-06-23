@@ -10,6 +10,10 @@
   {% endif %}
 {% endblock %}
 
+{% block og_description %}
+<meta property="og:description" content="Tags for {{ SITE_DESCRIPTION }}"/>
+{% endblock %}
+
 {#
 {% block canonical_rel %}
   {% if TAGS_URL %}

@@ -12,6 +12,10 @@
 
 {% endblock %}
 
+{% block og_description %}
+<meta property="og:description" content="Articles with tag {{ tag }} for {{               SITE_DESCRIPTION }}"/>
+{% endblock %}
+
 {# This template may have pagination #}
 
 {% block breadcrumbs %}

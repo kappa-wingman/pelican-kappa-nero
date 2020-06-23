@@ -2,6 +2,15 @@
 {% if USE_OPEN_GRAPH is not defined %}
     {% set USE_OPEN_GRAPH = True %}
 {% endif %}
+
+{% if output_file == 'index.html' %}
+  {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
+{% elif output_file.endswith("index.html") %}
+  {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
+{% else %}
+  {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
+{% endif %}
+
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
 <head>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
@@ -28,6 +37,7 @@
     {#{% block canonical_rel %}{% endblock %}#}
 
     {% block canonical_rel %}
+	{#
       {%- if output_file == 'index.html' %}
 	{%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
       {%- elif output_file.endswith("index.html") %}
@@ -35,6 +45,7 @@
       {%- else %}
 	{%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
     {%- endif %}
+	#}
       <link rel="canonical" href="{{ CANONICAL_HREF }}">
     {% endblock %}
 
@@ -63,8 +74,10 @@
         <meta property="og:site_name" content="{{ SITENAME }}" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{ SITENAME }}"/>
-        <meta property="og:url" content="{{ SITEURL }}"/>
+        <meta property="og:url" content="{{ CANONICAL_HREF }}"/>
+	{% block og_description %}
         <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+	{% endblock %}
         {% if OPEN_GRAPH_IMAGE %}
             <meta property="og:image"
                   content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>

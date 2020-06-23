@@ -3,30 +3,18 @@
 {% block meta %}
     <meta name="author" content="{{ AUTHOR }}" />
     <meta name="keywords" content="{{ category }}" />
-    <meta name="description" content="Articles with {{ category }} category for {{ SITE_DESCRIPTION }}"/>
+    <meta name="description" content="Articles with category {{ category }} for {{ SITE_DESCRIPTION }}"/>
   {% if METATAG_ROBOTS_CATGORY %}
     <meta name="robots" content="{{ METATAG_ROBOTS_CATGORY }}">
   {% endif %}
 {% endblock %}
 
-{# This template may have pagination #}
-
-{#
-{% block canonical_rel %}
-{%- if output_file == 'index.html' %}
-  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
-{%- elif output_file.endswith("index.html") %}
-  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
-{%- else %}
-  {%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
-{%- endif %}
-#}
-
-{#<link rel="canonical" href="{{ SITEURL }}/{{ category.url }}">#}
-{#
-<link rel="canonical" href="{{ CANONICAL_HREF }}">
+{% block og_description %}
+<meta property="og:description" content="Articles with category {{ category }} for {{ SITE_DESCRIPTION }}"/>
 {% endblock %}
-#}
+
+{# This template may have pagination #}
+{#<link rel="canonical" href="{{ SITEURL }}/{{ category.url }}">#}
 
 {% block breadcrumbs %}
     {% if DISPLAY_BREADCRUMBS %}

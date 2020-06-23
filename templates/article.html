@@ -28,7 +28,7 @@
         <meta property="og:title" content="{{ article.title|striptags|escape }}"/>
         <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}"/>
         {% if article.description %}
-        <meta property="og:description" content="{{ article.description }}" />
+        <meta property="og:description" content="{{ article.description|striptags|escape }}" />
         {% else %}
           {% if article.summary %}
             <meta property="og:description" content="{{ article.summary|striptags|escape }}" />
