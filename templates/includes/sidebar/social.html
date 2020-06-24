@@ -22,7 +22,9 @@
         {% set iconattributes = 'rss' %}
       {% endif %}
     {#<li class="list-group-item">#}
-      <a class="ml-1 mr-1" href="{{ s[1] }}" data-toggle="tooltip" title="{{ s[0] }}">
+      <a class="ml-1 mr-1" href="{{ s[1] }}"
+	data-toggle="tooltip" title="{{ s[0] }}"
+	aria-label="{{ s[0] }}">
         <i data-feather="{{ iconattributes }}"></i>
       </a>
     {#</li>#}
