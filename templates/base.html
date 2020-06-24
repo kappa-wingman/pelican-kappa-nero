@@ -3,8 +3,9 @@
     {% set USE_OPEN_GRAPH = True %}
 {% endif %}
 
+{# In Pelican, output_file is very similar to URL but without the first slash / after the hostname #}
 {% if output_file == 'index.html' %}
-  {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
+  {% set CANONICAL_HREF = SITEURL ~ "/" %}
 {% elif output_file.endswith("index.html") %}
   {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
 {% else %}
@@ -37,15 +38,6 @@
     {#{% block canonical_rel %}{% endblock %}#}
 
     {% block canonical_rel %}
-	{#
-      {%- if output_file == 'index.html' %}
-	{%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
-      {%- elif output_file.endswith("index.html") %}
-	{%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
-      {%- else %}
-	{%- set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
-    {%- endif %}
-	#}
       <link rel="canonical" href="{{ CANONICAL_HREF }}">
     {% endblock %}
 
@@ -120,7 +112,8 @@
     {% if TYPOGRIFY %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet">
     {% endif %}
-    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
+
+    {#<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>#}
 
     {# CSS specifc for this theme #}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/nero.css" type="text/css"/>

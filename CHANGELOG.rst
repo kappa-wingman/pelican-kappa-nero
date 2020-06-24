@@ -16,6 +16,13 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Not loading style.css in base.html.
+  Moved part of the content from style.css to nero.css
+- Improved SEO
+- Added code block for meta tag robots and description so that
+  they could be overwritten in the templates
+- Updated the url for og:description
+
 - Version 1.0.9
 
   - Update the screenshot
