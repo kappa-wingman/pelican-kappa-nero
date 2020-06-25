@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+    {% if 'tipue_search' in PLUGINS %}
+    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
+    {% endif %}
+{% endblock %}
+
 {% block metatag_description %}
   <meta name="description" content="Tipue Search for {{ SITE_DESCRIPTION }}"/>
 {% endblock %}

@@ -16,12 +16,15 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
-- Not loading style.css in base.html.
-  Moved part of the content from style.css to nero.css
-- Improved SEO
-- Added code block for meta tag robots and description so that
+- Version 1.1.0
+
+  - Not loading style.css in base.html template
+    Moved part of the content from style.css to nero.css
+  - Improved SEO
+  - Added code block for meta tag robots and description so that
   they could be overwritten in the templates
-- Updated the url for og:description
+  - Updated the url for og:description
+  - Normal pages would load jquery-slim.js, execpt Tipusearch needs jquery.js
 
 - Version 1.0.9
 

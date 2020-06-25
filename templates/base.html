@@ -97,9 +97,11 @@
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
 
+{#
     {% if 'tipue_search' in PLUGINS %}
     <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
     {% endif %}
+#}
 
     {% if MEILISEARCH %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docs-searchbar.js@1.1.6/dist/cdn/docs-searchbar.min.css" integrity="sha256-5Jyoxp88Z/eXx4QdWh17fJxBDdN0Eu+cwWOKGsCD8Xk=" crossorigin="anonymous">
@@ -179,12 +181,18 @@
     <!-- https://github.com/jquery/jquery/releases -->
     <!-- Using jquery 3.5.1 -->
 #}
-    {% if 'tipue_search' in PLUGINS %}
       {#src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"#}
+
+	{# loading jQuery slim for most page, except
+	   loading jQuery for the tipue search #}
+    {% if 'tipue_search' in PLUGINS and output_file == 'tipuesearch.html' %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
     {% else %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     {% endif %}
+	{#
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	#}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 
