@@ -11,18 +11,17 @@
   {% endif %}
 
 <!-- Sidebar/Tag Cloud -->
-<!--<section class="card"> -->
+{#<!--<section class="card"> -->#}
 <li class="list-group-item">
   <a href="{{ SITEURL }}/{{ TAGS_URL }}"><div class="mt-2">{{ title(_('Tag Cloud'), DISABLE_SIDEBAR_TITLE_ICONS, icon='tag') }}</div></a>
   <div class="row">
   <div class="col-11 offset-1 mt-3 {% if DISPLAY_TAGS_INLINE %}list-inline tagcloud{% endif %}" id="tagcloud-tags">
     {% for tag in tags %}
-     <!-- <span class="badge"> -->
+     {#<!-- <span class="badge"> -->#}
        <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
         {{- tag.0 -}}
       </a>
-  <!--    </span> -->
-  <!--  </li> -->
+  {#<!--    </span> -->#}
     {% endfor %}
   </div>
 </div>
