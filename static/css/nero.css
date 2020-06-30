@@ -38,13 +38,15 @@ body, .categories-timestamp {
 h1 {
   text-rendering: optimizelegibility;
   /*font-size: 38px;*/
-  font-size: 1.45em;
+  font-size: 1.52em;
+  font-family: "Inter", "IBM Plex Sans", "Noto Sans", "Roboto", sans-serif !important;
 }
 
 h2 {
   text-rendering: optimizelegibility;
   /*font-size: 30px;*/
-  font-size: 1.25em;
+  font-size: 1.28em;
+  font-family: "Inter", "IBM Plex Sans", "Noto Sans", "Roboto", sans-serif !important;
 }
 
 h3 {
@@ -669,8 +671,8 @@ pre, code, .highlight pre {
     overflow: auto !important;
     word-wrap: normal;
     white-space: pre;
-     
-    font-family: Menlo,Monaco,Consolas,monospace;
+
+    font-family: "Roboto Mono", Menlo, Monaco, Consolas, monospace;
     font-size: 0.96em;
 
     color:		var(--themeColor);
@@ -700,7 +702,8 @@ pre, code, .highlight pre {
   border: none;
   /*white-space: pre;*/ /* may affect lineos */
   width: auto;
-  max-width: min-content;
+  /*max-width: min-content; */
+  max-width: 100%;
   margin: 4px 4px;
 }
 
@@ -891,12 +894,12 @@ pre.code.literal-block { border: 1px solid; }
 
 /* For table converted by docutils */
 table.docutils {
-  border: 1px outset black;
+  border: 1px outset white;
   overflow-x: auto;
 }
 
 table.docutils td, table.docutils th {
-  border: 1px inset black;
+  border: 1px inset white;
   overflow-x: auto;
 }
 
