@@ -16,6 +16,9 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Set new default fonts for headings and code block
+-  Add white border for table.docutils
+
 - Version 1.1.0
 
   - Not loading style.css in base.html template
