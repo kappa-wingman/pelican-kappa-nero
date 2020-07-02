@@ -102,10 +102,16 @@
     "publisher": {
       "@type": "Organization",
       "name": "{{ AUTHOR }}",
+      "url": "{{ SITEURL }}",
       "logo": {
 	"@type": "ImageObject",
 	"url": "{{ SITEURL }}/{{ PUBLISHER_LOGO }}"
       }
+      {% if JSON_LD_PUBLISHER_SAME_AS %}
+      ,"sameAs": [
+          {{ JSON_LD_PUBLISHER_SAME_AS }}
+      ]
+      {% endif %}
     }
   },
   {

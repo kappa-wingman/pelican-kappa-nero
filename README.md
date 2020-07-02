@@ -72,6 +72,8 @@ Use it at your own risk.
 	* Note: there is an option DISPLAY_BREADCRUMBS and have visible breadcrumbs and actually added some schema for breadcrumbs. Google search engine would take the value from that. I do not know clearly what is performed by search engine if both Breadcrumb support is enabled in both JSON-LD BREADCRUME and DISPLAY_BREADCRUMS are enabled
 * JSON_LD_AUTHOR_SAME_AS = '"https://URL-1", "https://URL-2"'
 	* Update it to your links for the sameAs attribute for author. Assume there is only one author for this blog and multiple authors are not supported
+* JSON_LD_PUBLISHER_SAME_AS = '"https://URL-1", "https://URL-2"
+	* Similar to JSON_LD_AUTHOR_SAME_AS
 * Copy button on the top right corner of all "div.highlight pre" elements
 	* SPHINX_COPYBUTTON = True
 	* Adopted from [sphinx copybutton](https://github.com/executablebooks/sphinx-copybutton)
@@ -95,4 +97,3 @@ Use it at your own risk.
 	* METATAG_ROBOTS_CATGORY , for individual category
 	* METATAG_ROBOTS_CATGORIES_PAGE , for categories.html only
 	* METATAG_ROBOTS_ARCHIVES_PAGE , for archives.html only
-
