@@ -53,6 +53,7 @@ h3 {
   text-rendering: optimizelegibility;
   /*font-size: 26px;*/
   font-size: 1.12em;
+  font-family: "Inter", "IBM Plex Sans", "Noto Sans", "Roboto", sans-serif !important;
 }
 
 h4 {
@@ -427,10 +428,10 @@ p.card-header.collapsed {
    list-style: none;
 
 /*
-//    position: fixed;
-//    position: relative;
-//    position: sticky;
-//    position: absolute;
+    position: fixed;
+    position: relative;
+    position: sticky;
+    position: absolute;
 */
 
   position: -webkit-sticky;
@@ -566,7 +567,6 @@ p.card-header.collapsed {
 /*
   //min-width: 17.5%;
   //min-width: 200px;
-  //max-width: 17.5%;
 */
   max-width: 18.5%;
   margin-left: 1.5vw;
@@ -647,9 +647,11 @@ the current vesion of the ert plugin do not have this id (emtpy id) */
 }
 
 /* after BS4, for tags.html */
+/*
 h4.panel-title {
     background-color: #323232;
 }
+*/
 
 /* IntenseDebate comment system */
 #idc-container-parent #idc-container,
@@ -791,6 +793,7 @@ on the right for the very thin top navbar */
 /* For Responsive code block / table using pygments (highlighttable) */
 
 /* .table-responsive { color: #333; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 10px; } */
+
   .linenodiv pre {
     /*margin: 6px 0px; color: #ccc; border-radius: 0; border: none;*/
     margin: 4px 4px; color: #ccc; border: none;
@@ -975,25 +978,17 @@ div#id-extract-toc.toc ul.simple.list-group {
 
 /* Main category */
 .meilisearch-autocomplete .docs-searchbar-suggestion--category-header {
-/*
-  //color: darkgray;
-*/
+/* color: darkgray; */
   color: black;
-/*
-  //color: var(--themeColor);
-*/
+/* color: var(--themeColor); */
   border: 1px solid gray;
 }
 
 /* Category */
 .meilisearch-autocomplete .docs-searchbar-suggestion--subcategory-column {
-/*
-  //color: gray;
-*/
+/* color: gray; */
   color: black;
-/*
-  //color: var(--themeColor);
-*/
+/* color: var(--themeColor); */
 }
 
 .meilisearch-autocomplete .docs-searchbar-suggestion--subcategory-column,
@@ -1012,21 +1007,15 @@ div#id-extract-toc.toc ul.simple.list-group {
 .meilisearch-autocomplete .docs-searchbar-suggestion--title {
   font-weight: bold;
   color: black;
-/*
-  //color: white;
-*/
+/* color: white; */
 }
 
 /* Description */
 .meilisearch-autocomplete .docs-searchbar-suggestion--text {
   font-size: 0.8rem;
-/*
-  //color: gray;
-*/
+/* color: gray; */
   color: white;
-/*
-  //color: var(--themeColor);
-*/
+/* color: var(--themeColor); */
 }
 
 /* Highlighted text */
