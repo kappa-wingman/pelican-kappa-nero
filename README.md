@@ -29,8 +29,8 @@ Use it at your own risk.
 	* rel=prev/next implementation. Looks like the official method for Google Search engine is to add it in the head section. But could be a problem for Pelican to get the URL of previous/next page. The current rel=prev/next is added inside the hyperlink tag '<a\>' during pagination link generation. It is done according to the [HTML specification](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element).
 
 * Options that must be set in pelicanconf.py:
-	* PLUGINS = \['i18n_subsites'\] (required since pelican-bootstrap3)
-	* JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+	* PLUGINS = \['i18n_subsites'\] (i18n is required since pelican-bootstrap3)
+	* JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n', 'jinja2.ext.do']}
 
 * No need to set BOOTSTRAP_THEME, bootstrap.min would be used.
 

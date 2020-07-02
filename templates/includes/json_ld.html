@@ -14,6 +14,12 @@
   {%- endif %}
 {%- endif %}
 
+{%- if article %}
+  {#{%- set LOCAL_KEYWORDS = article.tags + [ category ] %}#}
+  {%- set LOCAL_KEYWORDS = article.tags|join(',')|striptags ~ ',' ~ category %}
+  {#{%- set LOCAL_KEYWORDS = [] %}#}
+{%- endif %}
+
 <script type="application/ld+json">
 { "@context": "http://schema.org",
   "@graph": [
@@ -91,7 +97,7 @@
     "url": "{{ SITEURL }}/{{ article.url }}",
     "@id": "{{ SITEURL }}/{{ article.url }}/#blogposting",
     {% if article.tags %}
-    "keywords": "{{ article.tags|join(',') }}",
+    "keywords": "{{ LOCAL_KEYWORDS }}",
     {% endif %}
     {% if article.description %}
     "description": "{{ article.description }}",

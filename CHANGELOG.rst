@@ -19,6 +19,7 @@ Changes, newer changes on top
 - Set new default fonts for headings and code block
 - Add white border for table.docutils
 - Add JSON_LD_PUBLISHER_SAME_AS
+- JSON-LD: Add category to keywords
 
 - Version 1.1.0
 
