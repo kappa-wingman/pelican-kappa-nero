@@ -13,7 +13,11 @@
                       </div>
 		    </div>
                 {% endif %}
-                <div class="summary mt-2">{{ article.summary }}
+                <div class="summary mt-2">
+		{% if article.article_cover_filename and article.display_cover_in_summary %}
+		  <img src="{{SITEURL}}/{{ article.url }}/{{ article.article_cover_filename }}" alt="" class="align-center"/>
+		{% endif %}
+		{{ article.summary }}
                     {% include 'includes/comment_count.html' %}
                     <a class="btn btn-default btn-xs btn-more" href="{{ SITEURL }}/{{ article.url }}">{{ _('More') }} ...</a>
                 </div>

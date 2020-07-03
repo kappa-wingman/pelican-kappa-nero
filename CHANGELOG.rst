@@ -16,12 +16,14 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
-- Set new default fonts for headings and code block
-- Add white border for table.docutils
-- Add JSON_LD_PUBLISHER_SAME_AS
-- JSON-LD: Add category to keywords
-- Add space before and after img tag, in nero.css
-- Add codes to include the correct URL for article cover. This is a special case for my blog
+- Version 1.1.1
+
+  - Set new default fonts for headings and code block
+  - Add white border for table.docutils
+  - Add JSON_LD_PUBLISHER_SAME_AS
+  - JSON-LD: Add category to keywords
+  - Add space before and after img tag, in nero.css
+  - Add codes to include the correct URL for article cover. This is a special case for my blog
 
 - Version 1.1.0
 
@@ -29,7 +31,7 @@ Changes, newer changes on top
     Moved part of the content from style.css to nero.css
   - Improved SEO
   - Added code block for meta tag robots and description so that
-  they could be overwritten in the templates
+    they could be overwritten in the templates
   - Updated the url for og:description
   - Normal pages would load jquery-slim.js, execpt Tipusearch needs jquery.js
 

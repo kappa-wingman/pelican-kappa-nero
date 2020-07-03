@@ -103,3 +103,4 @@ Use it at your own risk.
 	* :article_cover_filename: your-article-cover-image.jpg' metadata in the rst
 	* So I could use JINJA2 template to generate the correct URL for the cover image for JSON-LD, Facebook OG and Twitter cards
 	* If the URL format is different (like https://hostname/category/YYYY/MM/DD/slug.html), then we should use another method (like article.og_image metadata) to specify the URL for cover image
+	* Added :display_cover_in_summary: metadata/boolean checking, used must use with 'article_cover_filename" together
