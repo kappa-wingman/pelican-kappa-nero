@@ -12,6 +12,9 @@
         {% if article.og_image %}
             <meta property="twitter:image"
                   content="{{ SITEURL }}/{{ article.og_image }}"/>
+        {% elif LOCAL_ARTICLE_IMAGE %}
+            <meta property="twitter:image"
+                  content="{{ LOCAL_ARTICLE_IMAGE }}"/>
         {% elif OPEN_GRAPH_IMAGE %}
             <meta property="twitter:image"
                   content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>

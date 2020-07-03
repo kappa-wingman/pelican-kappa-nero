@@ -97,3 +97,9 @@ Use it at your own risk.
 	* METATAG_ROBOTS_CATGORY , for individual category
 	* METATAG_ROBOTS_CATGORIES_PAGE , for categories.html only
 	* METATAG_ROBOTS_ARCHIVES_PAGE , for archives.html only
+* URL for title image, for JSON-LD, Facebook OG and Twitter Cards. This is special case for my blog
+	* For articles, I use this as URL https://hostname/posts/category/YYYY/MM/DD/slug/
+	* Also, I put the title image of an article in the same directory as the source rst file
+	* In that case, I add this ':article_cover_filename: your-article-title-image.jpg' metadata in the rst
+	* So I could use JINJA2 template to generate the correct URL for the title image for JSON-LD, Facebook OG and Twitter cards
+	* If the URL format is different (like https:////hostname/category/YYYY/MM/DD/slug.html), it would another method (like article.og_image metadata) to specify the URL for title image

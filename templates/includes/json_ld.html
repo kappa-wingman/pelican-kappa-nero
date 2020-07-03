@@ -6,6 +6,10 @@
   {%- set LOCAL_JSOND_LD_CURRENT_URL = SITEURL ~ "/" ~ output_file %}
 {%- endif %}
 
+{%- if LOCAL_ARTICLE_IMAGE is not defined %}
+  {%- set LOCAL_ARTICLE_IMAGE = SITEURL ~ "/" ~ SITE_LOGO %}
+{%- endif %}
+
 {%- if category %}
   {%- if CATEGORY_URL %}
     {%- set LOCAL_JSON_LD_CATEGORY_URL = CATEGORY_URL.format(slug=category) %}
@@ -104,7 +108,7 @@
     {% elif article.summary %}
     "description": "{{ article.summary|striptags|escape }}",
     {% endif %}
-    "image" : "{{ SITEURL }}/{{ SITE_LOGO }}",
+    "image" : "{{ LOCAL_ARTICLE_IMAGE }}",
     "publisher": {
       "@type": "Organization",
       "name": "{{ AUTHOR }}",

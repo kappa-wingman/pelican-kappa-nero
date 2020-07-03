@@ -20,6 +20,8 @@ Changes, newer changes on top
 - Add white border for table.docutils
 - Add JSON_LD_PUBLISHER_SAME_AS
 - JSON-LD: Add category to keywords
+- Add space before and after img tag, in nero.css
+- Add codes to include the correct URL for article cover. This is a special case for my blog
 
 - Version 1.1.0
 

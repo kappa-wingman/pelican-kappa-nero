@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+
+{#
+{%- if LOCAL_ARTICLE_IMAGE is not defined or article.og_image is not defined or OPEN_GRAPH_IMAGE is not defined %}
+  {%- set LOCAL_ARTICLE_IMAGE = SITEURL ~ "/" ~ SITE_LOGO %}
+{%- endif %}
+#}
+
 {% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ article.lang }}{% endblock %}
 {% block meta %}
@@ -52,6 +59,9 @@
         {% if article.og_image %}
             <meta property="og:image"
                   content="{{ SITEURL }}/{{ article.og_image }}"/>
+        {% elif LOCAL_ARTICLE_IMAGE %}
+            <meta property="og:image"
+                  content="{{ LOCAL_ARTICLE_IMAGE }}"/>
         {% elif OPEN_GRAPH_IMAGE %}
             <meta property="og:image"
                   content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>

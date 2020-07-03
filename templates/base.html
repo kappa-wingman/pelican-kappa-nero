@@ -8,6 +8,9 @@
   {% set CANONICAL_HREF = SITEURL ~ "/" %}
 {% elif output_file.endswith("index.html") %}
   {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file.replace('index.html', '') %}
+  {%- if article and article.article_cover_filename %}
+    {%- set LOCAL_ARTICLE_IMAGE = SITEURL ~ "/" ~ article.url ~ article.article_cover_filename %}
+  {%- endif %}
 {% else %}
   {% set CANONICAL_HREF = SITEURL ~ "/" ~ output_file %}
 {% endif %}
