@@ -1101,3 +1101,8 @@ div#id-extract-toc.toc ul.simple.list-group {
 }
 
 /* Did not copy #banner setting from style.css */
+
+img {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
