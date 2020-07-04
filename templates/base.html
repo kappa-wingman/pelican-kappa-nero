@@ -275,6 +275,9 @@
         $("div#id-extract-toc.toc ul.simple.nav li").addClass("nav-item");
         $("div#id-extract-toc.toc ul.simple.nav li.nav-item a").addClass("nav-link");
 
+	{# Automatically add img-fluid to img tag #}
+	$("img").addClass ("img-fluid");
+
         // For doc nav sidebar open/close behaviour
         $('#sb_doc_nav_closeButton').on('click', function () {
             //alert('toggled');

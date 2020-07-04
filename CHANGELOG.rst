@@ -16,6 +16,8 @@ Use it at your own risk.
 Changes, newer changes on top
 -----------------------------
 
+- Wrap img tag with img-fluid to make image responsive
+
 - Version 1.1.1
 
   - Set new default fonts for headings and code block
